@@ -1,3 +1,3 @@
 # Villa Bayugita
 
-coba saja ya, ya ya ya
+coba saja ya
