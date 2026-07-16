@@ -22,12 +22,12 @@
           >
             Home
           </a>
-          <!-- Explore -->
+          <!-- The Villa -->
           <div class="group/nav relative py-4">
             <button
-              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white/80 hover:text-white"
+              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white <?php echo (isset($page) && ($page === 'beachfront' || $page === 'residence' || $page === 'villa')) ? 'active' : 'hover:text-white/70'; ?>"
             >
-              Explore
+              The Villa
               <iconify-icon icon="ph:caret-down" class="!text-xs !text-white/80"></iconify-icon>
             </button>
             <div
@@ -37,69 +37,38 @@
               <a href="villa-detail.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Bayu Gita Residence</a>
             </div>
           </div>
-          <!-- Gallery -->
+          <a
+            href="#"
+            class="xl:!text-sm text-sm tracking-wider text-white <?php echo (isset($page) && $page === 'experiences') ? 'active' : 'hover:text-white/70'; ?>"
+          >
+            Experiences
+          </a>
+          <!-- Special Events -->
           <div class="group/nav relative py-4">
             <button
-              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white/80 hover:text-white"
+              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white <?php echo (isset($page) && ($page === 'weddings' || $page === 'retreats' || $page === 'special-events')) ? 'active' : 'hover:text-white/70'; ?>"
             >
-              Gallery
+              Special Events
               <iconify-icon icon="ph:caret-down" class="!text-xs !text-white/80"></iconify-icon>
             </button>
             <div
               class="invisible absolute top-full left-1/2 z-50 min-w-56 -translate-x-1/2 translate-y-2 bg-white opacity-0 shadow-md transition-all duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100"
             >
-              <a href="gallery.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Photo Gallery</a>
-              <a href="floorplan.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Floorplan</a>
+              <a href="weddings.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Weddings</a>
+              <a href="retreats.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Corporate Retreats</a>
             </div>
           </div>
-          <!-- Location -->
-          <a href="location.php" class="xl:!text-sm text-sm tracking-wider text-white/80 hover:text-white">
-            Location
+          <a
+            href="gallery.php"
+            class="xl:!text-sm text-sm tracking-wider text-white <?php echo (isset($page) && ($page === 'gallery' || $page === 'floorplan')) ? 'active' : 'hover:text-white/70'; ?>"
+          >
+            Gallery
           </a>
-          <!-- Weddings -->
-          <a href="weddings.php" class="xl:!text-sm text-sm tracking-wider text-white/80 hover:text-white">
-            Weddings
-          </a>
-          <!-- Retreats -->
-          <a href="retreats.php" class="xl:!text-sm text-sm tracking-wider text-white/80 hover:text-white">
-            Retreats
-          </a>
-          <!-- Experience -->
-          <div class="group/nav relative py-4">
-            <button
-              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white/80 hover:text-white"
-            >
-              Experience
-              <iconify-icon icon="ph:caret-down" class="!text-xs !text-white/80"></iconify-icon>
-            </button>
-            <div
-              class="invisible absolute top-full left-1/2 z-50 min-w-56 -translate-x-1/2 translate-y-2 bg-white opacity-0 shadow-md transition-all duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100"
-            >
-              <a href="staff.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Staff</a>
-              <a href="dining.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Dining</a>
-              <a href="families.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Families</a>
-              <a href="spa.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Spa</a>
-              <a href="concierge.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Concierge</a>
-            </div>
-          </div>
-          <!-- Reviews -->
-          <div class="group/nav relative py-4">
-            <button
-              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white/80 hover:text-white"
-            >
-              Reviews
-              <iconify-icon icon="ph:caret-down" class="!text-xs !text-white/80"></iconify-icon>
-            </button>
-            <div
-              class="invisible absolute top-full left-1/2 z-50 min-w-56 -translate-x-1/2 translate-y-2 bg-white opacity-0 shadow-md transition-all duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100"
-            >
-              <a href="guest-review.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Guest Review</a>
-              <a href="press.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Press</a>
-            </div>
-          </div>
-          <!-- Rates -->
-          <a href="rates.php" class="xl:!text-sm text-sm tracking-wider text-white/80 hover:text-white">
-            Rates
+          <a
+            href="#"
+            class="xl:!text-sm text-sm tracking-wider text-white <?php echo (isset($page) && $page === 'special-offers') ? 'active' : 'hover:text-white/70'; ?>"
+          >
+            Special Offers
           </a>
         </nav>
         <!-- CTA (right) -->
@@ -141,13 +110,12 @@
   <div class="flex flex-1 flex-col px-6 py-4">
     <nav id="mobile-navbar-menu" class="flex flex-col gap-1">
       <a href="index.php" class="text-dark hover:text-brand py-3 text-sm">Home</a>
-
-      <!-- Explore -->
+      <!-- The Villa -->
       <div class="mobile-nav-group">
         <button
           class="mobile-nav-toggle text-dark-500 hover:text-brand flex w-full cursor-pointer items-center justify-between py-3 text-left text-sm"
         >
-          Explore
+          The Villa
           <iconify-icon icon="ph:caret-down" class="mobile-nav-caret !text-base"></iconify-icon>
         </button>
         <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
@@ -155,63 +123,22 @@
           <a href="villa-detail.php" class="text-dark-500 hover:text-brand py-2 text-sm">Bayu Gita Residence</a>
         </div>
       </div>
-
-      <!-- Gallery -->
+      <a href="#" class="text-dark hover:text-brand py-3 text-sm">Experiences</a>
+      <!-- Special Events -->
       <div class="mobile-nav-group">
         <button
           class="mobile-nav-toggle text-dark-500 hover:text-brand flex w-full cursor-pointer items-center justify-between py-3 text-left text-sm"
         >
-          Gallery
+          Special Events
           <iconify-icon icon="ph:caret-down" class="mobile-nav-caret !text-base"></iconify-icon>
         </button>
         <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
-          <a href="gallery.php" class="text-dark-500 hover:text-brand py-2 text-sm">Photo Gallery</a>
-          <a href="floorplan.php" class="text-dark-500 hover:text-brand py-2 text-sm">Floorplan</a>
+          <a href="weddings.php" class="text-dark-500 hover:text-brand py-2 text-sm">Weddings</a>
+          <a href="retreats.php" class="text-dark-500 hover:text-brand py-2 text-sm">Corporate Retreats</a>
         </div>
       </div>
-
-      <!-- Location -->
-      <a href="location.php" class="text-dark-500 hover:text-brand py-3 text-sm">Location</a>
-
-      <!-- Weddings -->
-      <a href="weddings.php" class="text-dark-500 hover:text-brand py-3 text-sm">Weddings</a>
-
-      <!-- Retreats -->
-      <a href="retreats.php" class="text-dark-500 hover:text-brand py-3 text-sm">Retreats</a>
-
-      <!-- Experience -->
-      <div class="mobile-nav-group">
-        <button
-          class="mobile-nav-toggle text-dark-500 hover:text-brand flex w-full cursor-pointer items-center justify-between py-3 text-left text-sm"
-        >
-          Experience
-          <iconify-icon icon="ph:caret-down" class="mobile-nav-caret !text-base"></iconify-icon>
-        </button>
-        <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
-          <a href="staff.php" class="text-dark-500 hover:text-brand py-2 text-sm">Staff</a>
-          <a href="dining.php" class="text-dark-500 hover:text-brand py-2 text-sm">Dining</a>
-          <a href="families.php" class="text-dark-500 hover:text-brand py-2 text-sm">Families</a>
-          <a href="spa.php" class="text-dark-500 hover:text-brand py-2 text-sm">Spa</a>
-          <a href="concierge.php" class="text-dark-500 hover:text-brand py-2 text-sm">Concierge</a>
-        </div>
-      </div>
-
-      <!-- Reviews -->
-      <div class="mobile-nav-group">
-        <button
-          class="mobile-nav-toggle text-dark-500 hover:text-brand flex w-full cursor-pointer items-center justify-between py-3 text-left text-sm"
-        >
-          Reviews
-          <iconify-icon icon="ph:caret-down" class="mobile-nav-caret !text-base"></iconify-icon>
-        </button>
-        <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
-          <a href="guest-review.php" class="text-dark-500 hover:text-brand py-2 text-sm">Guest Review</a>
-          <a href="press.php" class="text-dark-500 hover:text-brand py-2 text-sm">Press</a>
-        </div>
-      </div>
-
-      <!-- Rates -->
-      <a href="rates.php" class="text-dark-500 hover:text-brand py-3 text-sm">Rates</a>
+      <a href="gallery.php" class="text-dark hover:text-brand py-3 text-sm">Gallery</a>
+      <a href="#" class="text-dark hover:text-brand py-3 text-sm">Special Offers</a>
     </nav>
     <div id="mobile-navbar-divider" class="divider my-6"></div>
     <div id="mobile-navbar-auth">
