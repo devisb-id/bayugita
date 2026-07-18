@@ -38,7 +38,7 @@
             </div>
           </div>
           <a
-            href="#"
+            href="experiences.php"
             class="xl:!text-sm text-sm tracking-wider text-white <?php echo (isset($page) && $page === 'experiences') ? 'active' : 'hover:text-white/70'; ?>"
           >
             Experiences
@@ -65,7 +65,7 @@
             Gallery
           </a>
           <a
-            href="#"
+            href="special-offers.php"
             class="xl:!text-sm text-sm tracking-wider text-white <?php echo (isset($page) && $page === 'special-offers') ? 'active' : 'hover:text-white/70'; ?>"
           >
             Special Offers
@@ -79,7 +79,7 @@
             rel="noopener noreferrer"
             class="btn-primary"
           >
-            Enquire
+            Book Now
           </a>
         </div>
         <button
@@ -123,7 +123,7 @@
           <a href="villa-detail.php" class="text-dark-500 hover:text-brand py-2 text-sm">Bayu Gita Residence</a>
         </div>
       </div>
-      <a href="#" class="text-dark hover:text-brand py-3 text-sm">Experiences</a>
+      <a href="experiences.php" class="text-dark hover:text-brand py-3 text-sm">Experiences</a>
       <!-- Special Events -->
       <div class="mobile-nav-group">
         <button
@@ -138,7 +138,7 @@
         </div>
       </div>
       <a href="gallery.php" class="text-dark hover:text-brand py-3 text-sm">Gallery</a>
-      <a href="#" class="text-dark hover:text-brand py-3 text-sm">Special Offers</a>
+      <a href="special-offers.php" class="text-dark hover:text-brand py-3 text-sm">Special Offers</a>
     </nav>
     <div id="mobile-navbar-divider" class="divider my-6"></div>
     <div id="mobile-navbar-auth">
@@ -148,7 +148,7 @@
         rel="noopener noreferrer"
         class="btn-primary w-full"
       >
-        Enquire
+        Book Now
       </a>
     </div>
   </div>

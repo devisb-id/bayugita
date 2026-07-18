@@ -1,4 +1,11 @@
-<?php $page = 'home'; ?>
+<?php
+$page = 'home';
+
+// Set to false to hide the Special Offers section on the home page
+$show_special_offers = true;
+
+require 'partials/offers-data.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -204,18 +211,201 @@
         </div>
       </section>
 
-      <!-- Divider -->
-      <div data-aos="fade-up" class="mt-16 w-full md:mt-20 xl:mt-28">
+      <!-- Special Offers -->
+      <?php if ($show_special_offers) : ?>
+      <section
+        id="special-offers"
+        data-aos="fade-up"
+        class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
+      >
         <div class="delimiter">
-          <div class="divider"></div>
+          <div class="text-center">
+            <h2 class="font-playfair text-3xl xl:text-4xl">Special Offers</h2>
+            <p class="mx-auto mt-4 max-w-2xl leading-relaxed">
+              Enhance your stay with thoughtfully curated offers designed to provide greater value,
+              flexibility, and an even more rewarding villa experience in the heart of Bali.
+            </p>
+          </div>
+          <div class="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-10 md:grid-cols-2 xl:mt-16 xl:gap-12">
+            <?php foreach ($special_offers as $offer) : ?>
+            <div class="flex h-full flex-col">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src="<?php echo $offer['image']; ?>"
+                  alt="<?php echo $offer['alt']; ?>"
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-6 flex flex-1 flex-col text-center">
+                <h3 class="font-playfair text-xl font-normal xl:text-2xl">
+                  <?php echo $offer['title']; ?>
+                </h3>
+                <p class="mx-auto mt-3 max-w-md leading-relaxed">
+                  <?php echo $offer['excerpt']; ?>
+                </p>
+                <div class="mt-6 flex flex-1 items-end justify-center">
+                  <button
+                    type="button"
+                    data-modal-open="modal-offer-<?php echo $offer['id']; ?>"
+                    class="group text-brand inline-flex cursor-pointer items-center gap-1 text-sm font-medium"
+                  >
+                    View Offer
+                    <iconify-icon
+                      icon="ph:arrow-right"
+                      class="!text-brand transition-transform group-hover:translate-x-1"
+                    ></iconify-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <?php endforeach; ?>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <?php include 'partials/offers-modals.php'; ?>
+      <?php endif; ?>
+
+      <!-- Featured Stories -->
+      <section id="stories" data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
+        <div class="delimiter">
+          <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <h2 class="font-playfair text-3xl xl:text-4xl">Featured Stories</h2>
+            <a href="featured-stories.php" class="btn-primary group w-fit shrink-0">
+              See All Stories
+              <iconify-icon
+                icon="ph:arrow-right"
+                class="group-hover:animate-bounce-right"
+              ></iconify-icon>
+            </a>
+          </div>
+          <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:mt-16 xl:grid-cols-4 xl:gap-10">
+            <!-- Story 1 -->
+            <a href="featured-stories-detail.php" class="group flex h-full flex-col">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src="assets/images/detail-ocean-view.webp"
+                  alt="Inside Villa Bayu Gita Beachfront"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-6 flex flex-1 flex-col">
+                <h3 class="font-playfair text-lg font-normal leading-snug xl:text-xl">
+                  Inside Villa Bayu Gita: Ketewel&rsquo;s Icon of Beachfront Luxury
+                </h3>
+                <p class="mt-3 leading-relaxed">
+                  Facing the Badung Straits with awe-inspiring ocean views, Bayu Gita Beachfront has
+                  become the definition of luxury on Bali&rsquo;s south-east coast.
+                </p>
+                <span
+                  class="text-brand mt-6 inline-flex items-center gap-1 text-sm font-medium"
+                >
+                  Discover More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
+            </a>
+            <!-- Story 2 -->
+            <a href="featured-stories-detail.php" class="group flex h-full flex-col">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src="assets/images/experience-dining-1.webp"
+                  alt="Moments Made to be Savoured at Villa Bayu Gita"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-6 flex flex-1 flex-col">
+                <h3 class="font-playfair text-lg font-normal leading-snug xl:text-xl">
+                  Moments Made to be Savoured
+                </h3>
+                <p class="mt-3 leading-relaxed">
+                  How sustainable and aesthetic dining enhances wellness travel &mdash; culinary
+                  experiences designed to promote mindfulness at the villa.
+                </p>
+                <span
+                  class="text-brand mt-6 inline-flex items-center gap-1 text-sm font-medium"
+                >
+                  Discover More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
+            </a>
+            <!-- Story 3 -->
+            <a href="featured-stories-detail.php" class="group flex h-full flex-col">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src="assets/images/detail-outdoor.webp"
+                  alt="Private Dining at Villa Bayu Gita"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-6 flex flex-1 flex-col">
+                <h3 class="font-playfair text-lg font-normal leading-snug xl:text-xl">
+                  Private Dining, Reimagined
+                </h3>
+                <p class="mt-3 leading-relaxed">
+                  The evolution of exclusive culinary services in luxury travel, and the modern
+                  shift in hospitality that brings the restaurant to your villa.
+                </p>
+                <span
+                  class="text-brand mt-6 inline-flex items-center gap-1 text-sm font-medium"
+                >
+                  Discover More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
+            </a>
+            <!-- Story 4 -->
+            <a href="featured-stories-detail.php" class="group flex h-full flex-col">
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src="assets/images/experience-staff-1.webp"
+                  alt="A Curated Villa Dining Experience at Villa Bayu Gita"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="mt-6 flex flex-1 flex-col">
+                <h3 class="font-playfair text-lg font-normal leading-snug xl:text-xl">
+                  A Curated Villa Dining Experience
+                </h3>
+                <p class="mt-3 leading-relaxed">
+                  Personalised fine dining: how a dedicated villa team turns every meal into the
+                  ultimate luxury guest experience.
+                </p>
+                <span
+                  class="text-brand mt-6 inline-flex items-center gap-1 text-sm font-medium"
+                >
+                  Discover More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <!-- Guest Reviews -->
       <section
         id="reviews"
         data-aos="fade-up"
-        class="mt-16 overflow-hidden bg-gray-50 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
+        class="mt-16 overflow-hidden bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
       >
         <div class="delimiter">
           <div class="mx-auto max-w-6xl text-center">
@@ -336,8 +526,28 @@
       </section>
 
       <!-- Map Section -->
-      <section data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
-        <div class="h-80 w-full xl:h-[28rem]">
+      <section id="location" data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
+        <div class="delimiter">
+          <div class="mx-auto max-w-3xl text-center">
+            <h2 class="font-playfair text-3xl xl:text-4xl">Location</h2>
+            <p class="text-brand mt-4 text-sm font-medium tracking-wider uppercase">
+              Ketewel, Bali&rsquo;s South-East Coast
+            </p>
+            <p class="mt-4 leading-relaxed">
+              Villa Bayu Gita sits on Pabean Beach in the tranquil coastal village of Ketewel, with
+              spectacular views towards Sanur, Nusa Penida and the mountains of east Bali. Ubud is a
+              30-minute drive away, while the markets of Sukawati lie just 7km to the north.
+            </p>
+            <a
+              href="location.php"
+              class="text-brand mt-6 inline-flex items-center gap-1 text-sm font-medium"
+            >
+              Explore the Area
+              <iconify-icon icon="ph:arrow-right" class="!text-brand"></iconify-icon>
+            </a>
+          </div>
+        </div>
+        <div class="mt-12 h-80 w-full xl:mt-16 xl:h-[28rem]">
           <iframe
             src="https://www.google.com/maps?q=-8.6278326,115.3006666&hl=en&z=14&output=embed"
             width="100%"

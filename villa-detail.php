@@ -294,7 +294,7 @@
       <!-- Living & Dining Areas Section -->
       <section
         data-aos="fade-up"
-        class="mt-16 bg-gray-50 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
+        class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
       >
         <div class="delimiter">
           <h2 class="text-center">Living &amp; Dining Areas</h2>

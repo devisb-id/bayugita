@@ -6,8 +6,10 @@
       <div class="max-w-xl">
         <h2 class="!text-xl text-white md:!text-2xl xl:!text-3xl">Bayu Gita</h2>
         <p class="mt-4 leading-relaxed text-gray-300">
-          Bayu Gita Estate, Jalan Pantai Pabean, Banjar Pabean Ketewel, Kecamatan Sukawati,
-          Kabupaten Gianyar, Bali, Indonesia 80582
+          <a href="location.php" class="text-gray-300 underline-offset-4 hover:text-white hover:underline">
+            Bayu Gita Estate
+          </a>, Jalan Pantai Pabean, Banjar Pabean Ketewel, Kecamatan Sukawati, Kabupaten Gianyar,
+          Bali, Indonesia 80582
         </p>
         <div class="mt-6 flex flex-wrap items-center gap-6">
           <a
@@ -34,7 +36,6 @@
       <!-- Right -->
       <div class="flex flex-col items-start gap-10 md:items-end md:gap-12">
         <div class="flex flex-col items-start md:items-end">
-          <p class="mb-4 text-white">Managed by</p>
           <img
             src="assets/images/luxso-logo.webp"
             alt="Luxso Villa & Resort Management"

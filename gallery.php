@@ -49,6 +49,14 @@ $gallery = [
   ['gallery-res-24.webp', 'Bayu Gita Residence - Serene Villa at Twilight'],
 ];
 
+// Video files go in assets/videos/ as WebM (MP4 is gitignored); 'poster' is the grid thumbnail.
+// All three slots share one sample video for now.
+$videos = [
+  ['file' => 'villa-tour.webm', 'poster' => 'gallery-beach-15.webp', 'title' => 'Bayu Gita Beachfront - Villa Tour'],
+  ['file' => 'villa-tour.webm', 'poster' => 'gallery-beach-03.webp', 'title' => 'Bayu Gita Beachfront - Pool &amp; Ocean Views'],
+  ['file' => 'villa-tour.webm', 'poster' => 'gallery-res-01.webp', 'title' => 'Bayu Gita Residence - Villa Tour'],
+];
+
 $per_page = 12;
 $total_pages = (int) ceil(count($gallery) / $per_page);
 ?>
@@ -59,10 +67,10 @@ $total_pages = (int) ceil(count($gallery) / $per_page);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Photo Gallery - Villa Bayu Gita, Bali</title>
+  <title>Gallery - Villa Bayu Gita, Bali</title>
   <meta
     name="description"
-    content="Explore the photo gallery of Villa Bayu Gita - browse images of Bayu Gita Beachfront and Bayu Gita Residence, two luxury villas on Bali's south-east coast." />
+    content="Explore the gallery of Villa Bayu Gita - browse images and videos of Bayu Gita Beachfront and Bayu Gita Residence, two luxury villas on Bali's south-east coast." />
   <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
   <link rel="stylesheet" href="assets/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/aos/aos.css" />
@@ -117,6 +125,43 @@ $total_pages = (int) ceil(count($gallery) / $per_page);
         </div>
       </section>
 
+      <!-- Video Gallery -->
+      <section data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
+        <div class="delimiter">
+          <h2 class="text-center">Video Gallery</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-center leading-relaxed">
+            Take a closer look at both villas and the stretch of Pabean Beach they call home.
+          </p>
+          <div
+            id="video-gallery"
+            class="mt-10 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 xl:grid-cols-3"
+          >
+            <?php foreach ($videos as $video): ?>
+            <a
+              data-lg-size="1280-720"
+              data-video='{"source": [{"src":"assets/videos/<?php echo $video['file']; ?>", "type":"video/webm"}], "attributes": {"preload": "auto", "controls": true, "autoplay": true, "playsinline": true}}'
+              data-poster="assets/images/<?php echo $video['poster']; ?>"
+              class="group relative block aspect-video cursor-pointer overflow-hidden"
+            >
+              <img
+                src="assets/images/<?php echo $video['poster']; ?>"
+                alt="<?php echo htmlspecialchars($video['title'], ENT_QUOTES); ?>"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30"
+              >
+                <div class="bg-brand flex size-10 items-center justify-center xl:size-12">
+                  <iconify-icon icon="ph:play-fill" class="text-lg !text-white xl:text-xl"></iconify-icon>
+                </div>
+              </div>
+            </a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </section>
+
       <!-- Floorplan CTA -->
       <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
         <div class="mx-auto w-full max-w-3xl px-6 text-center">
@@ -153,6 +198,10 @@ $total_pages = (int) ceil(count($gallery) / $per_page);
     src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"
     defer
   ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"
+    defer
+  ></script>
   <script src="assets/scripts/script.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -167,6 +216,21 @@ $total_pages = (int) ceil(count($gallery) / $per_page);
           counter: false,
           subHtml: false,
           getCaptionFromTitleOrAlt: false,
+        });
+      }
+
+      // Video Gallery lightGallery
+      const videoGallery = document.getElementById('video-gallery');
+      if (videoGallery && typeof lightGallery !== 'undefined') {
+        lightGallery(videoGallery, {
+          speed: 400,
+          plugins: [lgVideo],
+          selector: 'a',
+          download: false,
+          counter: false,
+          autoplayFirstVideo: true,
+          videojs: false,
+          gotoNextSlideOnVideoEnd: false,
         });
       }
 
