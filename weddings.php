@@ -197,14 +197,13 @@
                 class="group-hover:animate-bounce-right"
               ></iconify-icon>
             </a>
-            <a
-              href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*1ltdhsd*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-secondary"
+            <button
+              type="button"
+              data-modal-open="modal-enquiry"
+              class="btn-secondary cursor-pointer"
             >
               Enquire Now
-            </a>
+            </button>
           </div>
         </div>
       </section>

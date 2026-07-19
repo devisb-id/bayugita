@@ -21,16 +21,15 @@
             <iconify-icon icon="ri:whatsapp-fill" class="!text-white"></iconify-icon>
             Contact Us on Whatsapp
           </a>
-          <a
-            href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*1ltdhsd*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm text-white hover:text-white/70"
+          <button
+            type="button"
+            data-modal-open="modal-enquiry"
+            class="inline-flex cursor-pointer items-center gap-2 text-sm text-white hover:text-white/70"
           >
             <iconify-icon icon="ph:envelope-simple" class="!text-white"></iconify-icon>
             Enquire Now
             <iconify-icon icon="ph:arrow-right" class="!text-white"></iconify-icon>
-          </a>
+          </button>
         </div>
       </div>
       <!-- Right -->
@@ -105,3 +104,5 @@
     </div>
   </div>
 </footer>
+
+<?php include __DIR__ . '/enquiry-modal.php'; ?>

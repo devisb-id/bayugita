@@ -323,6 +323,7 @@
   .form input[type='text'],
   .form input[type='email'],
   .form input[type='tel'],
+  .form input[type='date'],
   .form select,
   .form textarea {
     @apply focus:border-brand text-dark w-full border-b border-gray-200 bg-transparent py-3.5 text-sm transition-all outline-none placeholder:text-gray-400;

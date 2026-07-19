@@ -211,18 +211,17 @@ require 'partials/rates-data.php';
               quote, please check our booking system or get in touch with our team.
             </p>
             <div class="mt-8 flex justify-center">
-              <a
-                href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*1ltdhsd*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-primary group"
+              <button
+                type="button"
+                data-modal-open="modal-enquiry"
+                class="btn-primary group cursor-pointer"
               >
                 Enquire Now
                 <iconify-icon
                   icon="ph:arrow-right"
                   class="group-hover:animate-bounce-right"
                 ></iconify-icon>
-              </a>
+              </button>
             </div>
           </div>
         </div>

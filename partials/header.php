@@ -74,7 +74,7 @@
         <!-- CTA (right) -->
         <div class="hidden items-center justify-self-end xl:flex">
           <a
-            href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*tknxhq*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
+            href="https://booking.luxsomanagement.com/?ownerid=156681&propid=337373"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-primary"
@@ -143,7 +143,7 @@
     <div id="mobile-navbar-divider" class="divider my-6"></div>
     <div id="mobile-navbar-auth">
       <a
-        href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*tknxhq*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
+        href="https://booking.luxsomanagement.com/?ownerid=156681&propid=337373"
         target="_blank"
         rel="noopener noreferrer"
         class="btn-primary w-full"
