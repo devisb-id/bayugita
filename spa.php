@@ -45,12 +45,14 @@
           <div class="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-12">
             <!-- Content -->
             <div class="flex flex-col justify-center py-4 md:py-8">
-              <h1>The Spa</h1>
+              <h1>Wellness &amp; Spa Treatments</h1>
               <p class="mt-6 leading-relaxed">
-                Feel like a body scrub or massage? Just ask our staff to bring the spa to you! We can
-                recommend deluxe treatments carried out in the privacy of the villa by fully trained
-                therapists from a reputable local spa (extra charges will apply). Here&rsquo;s a
-                sample of what&rsquo;s on the menu:
+                Indulge in a rejuvenating wellness experience within the privacy of the villa, where
+                relaxation and balance are thoughtfully integrated into your stay. Guests can enjoy the
+                option to arrange in-villa spa treatments, massages, and holistic therapies tailored to
+                individual preferences. We can recommend deluxe treatments carried out by fully trained
+                therapists from a reputable local spa (extra charges will apply). Here&rsquo;s a sample
+                of what&rsquo;s on the menu:
               </p>
             </div>
             <!-- Image -->
@@ -90,12 +92,12 @@
                 <iconify-icon icon="ph:hand-heart" class="!text-brand !text-2xl"></iconify-icon>
               </div>
               <div>
-                <h3>Traditional Balinese Massage</h3>
+                <h3>Massage</h3>
                 <p class="mt-2 leading-relaxed">
                   Release built up tension with a traditional Balinese massage by the pool or in the
-                  relaxation bal&eacute;. Using a combination of gentle stretches, acupressure and
-                  aromatherapy oils to stimulate the flow of blood, oxygen and energy around your
-                  body you will feel totally relaxed in no time.
+                  relaxation bal&eacute;. A combination of gentle stretches, acupressure and
+                  aromatherapy oils stimulates the flow of blood, oxygen and energy around your body,
+                  leaving you totally relaxed.
                 </p>
               </div>
             </div>
@@ -106,10 +108,9 @@
               <div>
                 <h3>Foot Reflexology</h3>
                 <p class="mt-2 leading-relaxed">
-                  Foot reflexology is a natural healing art based on the principle that there are
-                  reflexes in the feet which correspond to every part of the body. Through
-                  application of pressure on these reflexes tension is relieved and circulation
-                  improved leaving you feeling balanced.
+                  A natural healing art based on the principle that reflexes in the feet correspond to
+                  every part of the body. Through applied pressure on these reflexes, tension is
+                  relieved and circulation improved, leaving you feeling balanced.
                 </p>
               </div>
             </div>
@@ -118,12 +119,11 @@
                 <iconify-icon icon="ph:sparkle" class="!text-brand !text-2xl"></iconify-icon>
               </div>
               <div>
-                <h3>Full Body Scrub</h3>
+                <h3>Body Scrub</h3>
                 <p class="mt-2 leading-relaxed">
-                  A full body scrub will exfoliate and hydrate your skin leaving it soft and smooth.
-                  A rejuvenating scrub combines an abrasive material such as salt, coffee, rice bran
-                  or pecan hulls with essential oils to remove any impurities and make your skin
-                  glow.
+                  A full body scrub exfoliates and hydrates your skin, leaving it soft and smooth. A
+                  rejuvenating scrub combines an abrasive material such as salt, coffee, rice bran or
+                  pecan hulls with essential oils to remove impurities and make your skin glow.
                 </p>
               </div>
             </div>
@@ -132,7 +132,7 @@
                 <iconify-icon icon="ph:hand-soap" class="!text-brand !text-2xl"></iconify-icon>
               </div>
               <div>
-                <h3>Manicure &amp; Pedicure</h3>
+                <h3>Manicure/Pedicure</h3>
                 <p class="mt-2 leading-relaxed">
                   Our hands and feet work hard for us every day but rarely get the attention they
                   deserve. Treat them to a manicure or pedicure, which usually comes with the added

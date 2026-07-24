@@ -1,4 +1,15 @@
-<?php $page = 'weddings'; ?>
+<?php
+$page = 'weddings';
+
+// Wedding facts list — add / edit / reorder items here. Pick any Phosphor icon (https://icones.js.org, set "ph").
+$weddingFacts = [
+  ['icon' => 'ph:armchair', 'title' => 'Seated', 'text' => 'Up to 30 guests'],
+  ['icon' => 'ph:users-three', 'title' => 'Standing', 'text' => 'Up to 30 guests'],
+  ['icon' => 'ph:heart', 'title' => 'Ceremonies', 'text' => 'Beachfront &amp; garden settings'],
+  ['icon' => 'ph:champagne', 'title' => 'Receptions', 'text' => 'Dinners &amp; cocktail parties'],
+  ['icon' => 'ph:flower-lotus', 'title' => 'Styling', 'text' => 'Florists &amp; decorators on request'],
+];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -92,27 +103,20 @@
               can focus on relaxing and celebrating with your guests.
             </p>
           </div>
-          <!-- Capacity facts -->
-          <div class="mt-10 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-16 md:mt-12">
-            <div class="flex items-center gap-5">
+          <!-- Wedding facts list -->
+          <ul class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+            <?php foreach ($weddingFacts as $fact): ?>
+            <li class="flex items-center gap-5">
               <div class="bg-brand-50 flex size-14 shrink-0 items-center justify-center">
-                <iconify-icon icon="ph:armchair" class="!text-brand !text-2xl"></iconify-icon>
+                <iconify-icon icon="<?php echo $fact['icon']; ?>" class="!text-brand !text-2xl"></iconify-icon>
               </div>
               <div class="text-left">
-                <h3>Seated</h3>
-                <p class="mt-1 leading-relaxed">Up to 30 guests</p>
+                <h3><?php echo $fact['title']; ?></h3>
+                <p class="mt-1 leading-relaxed"><?php echo $fact['text']; ?></p>
               </div>
-            </div>
-            <div class="flex items-center gap-5">
-              <div class="bg-brand-50 flex size-14 shrink-0 items-center justify-center">
-                <iconify-icon icon="ph:users-three" class="!text-brand !text-2xl"></iconify-icon>
-              </div>
-              <div class="text-left">
-                <h3>Standing</h3>
-                <p class="mt-1 leading-relaxed">Up to 30 guests</p>
-              </div>
-            </div>
-          </div>
+            </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       </section>
 

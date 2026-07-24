@@ -1,6 +1,9 @@
 <?php
 $page = 'experiences';
 
+// Toggle the "Plan Your Stay" CTA section
+$showPlanYourStay = true;
+
 // Additional services cards
 $services = [
   [
@@ -145,41 +148,107 @@ $services = [
             <div class="flex w-full flex-col justify-center md:w-1/2">
               <h2>Wellness &amp; Spa Treatments</h2>
               <p class="mt-6 leading-relaxed">
-                Feel like a body scrub or massage? Just ask our staff to bring the spa to you. We can
-                recommend deluxe treatments carried out in the privacy of the villa by fully trained
-                therapists from a reputable local spa (extra charges apply). Here&rsquo;s a sample of
-                what&rsquo;s on the menu:
+                Indulge in a rejuvenating wellness experience within the privacy of the villa, where
+                relaxation and balance are thoughtfully integrated into your stay. Guests can enjoy the
+                option to arrange in-villa spa treatments, massages, and holistic therapies tailored to
+                individual preferences.
               </p>
-              <ul class="mt-6 flex flex-col gap-3">
-                <li class="flex items-start gap-3">
-                  <iconify-icon
-                    icon="ph:check-circle-fill"
-                    class="!text-brand mt-0.5 shrink-0 !text-lg"
-                  ></iconify-icon>
-                  Traditional Balinese massage by the pool or in the relaxation bal&eacute;
-                </li>
-                <li class="flex items-start gap-3">
-                  <iconify-icon
-                    icon="ph:check-circle-fill"
-                    class="!text-brand mt-0.5 shrink-0 !text-lg"
-                  ></iconify-icon>
-                  Foot reflexology to relieve tension and improve circulation
-                </li>
-                <li class="flex items-start gap-3">
-                  <iconify-icon
-                    icon="ph:check-circle-fill"
-                    class="!text-brand mt-0.5 shrink-0 !text-lg"
-                  ></iconify-icon>
-                  Full body scrub to exfoliate and hydrate the skin
-                </li>
-                <li class="flex items-start gap-3">
-                  <iconify-icon
-                    icon="ph:check-circle-fill"
-                    class="!text-brand mt-0.5 shrink-0 !text-lg"
-                  ></iconify-icon>
-                  Manicure &amp; pedicure, with a hand or foot massage included
-                </li>
-              </ul>
+              <p class="mt-4 leading-relaxed">
+                We can recommend deluxe treatments carried out in the privacy of the villa by fully
+                trained therapists from a reputable local spa (extra charges will apply). Here&rsquo;s
+                a sample of what&rsquo;s on the menu:
+              </p>
+
+              <!-- Menu Accordion -->
+              <div class="mt-8">
+                <div class="accordion-item border-b border-gray-300 pb-4">
+                  <div class="accordion-trigger flex cursor-pointer items-center justify-between">
+                    <h3 class="uppercase">Massage</h3>
+                    <span class="btn-primary !p-2">
+                      <iconify-icon
+                        icon="ph:caret-down"
+                        class="text-lg !text-white transition-transform duration-300"
+                      ></iconify-icon>
+                    </span>
+                  </div>
+                  <div class="accordion-slide">
+                    <div class="w-full">
+                      <p class="mt-4 leading-relaxed">
+                        Release built up tension with a traditional Balinese massage by the pool or in
+                        the relaxation bal&eacute;. A combination of gentle stretches, acupressure and
+                        aromatherapy oils stimulates the flow of blood, oxygen and energy around your
+                        body, leaving you totally relaxed.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item mt-6 border-b border-gray-300 pb-4">
+                  <div class="accordion-trigger flex cursor-pointer items-center justify-between">
+                    <h3 class="uppercase">Foot Reflexology</h3>
+                    <span class="btn-primary !p-2">
+                      <iconify-icon
+                        icon="ph:caret-down"
+                        class="text-lg !text-white transition-transform duration-300"
+                      ></iconify-icon>
+                    </span>
+                  </div>
+                  <div class="accordion-slide">
+                    <div class="w-full">
+                      <p class="mt-4 leading-relaxed">
+                        A natural healing art based on the principle that reflexes in the feet
+                        correspond to every part of the body. Through applied pressure on these
+                        reflexes, tension is relieved and circulation improved, leaving you feeling
+                        balanced.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item mt-6 border-b border-gray-300 pb-4">
+                  <div class="accordion-trigger flex cursor-pointer items-center justify-between">
+                    <h3 class="uppercase">Body Scrub</h3>
+                    <span class="btn-primary !p-2">
+                      <iconify-icon
+                        icon="ph:caret-down"
+                        class="text-lg !text-white transition-transform duration-300"
+                      ></iconify-icon>
+                    </span>
+                  </div>
+                  <div class="accordion-slide">
+                    <div class="w-full">
+                      <p class="mt-4 leading-relaxed">
+                        A full body scrub exfoliates and hydrates your skin, leaving it soft and smooth.
+                        A rejuvenating scrub combines an abrasive material such as salt, coffee, rice
+                        bran or pecan hulls with essential oils to remove impurities and make your skin
+                        glow.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item mt-6 border-b border-gray-300 pb-4">
+                  <div class="accordion-trigger flex cursor-pointer items-center justify-between">
+                    <h3 class="uppercase">Manicure/Pedicure</h3>
+                    <span class="btn-primary !p-2">
+                      <iconify-icon
+                        icon="ph:caret-down"
+                        class="text-lg !text-white transition-transform duration-300"
+                      ></iconify-icon>
+                    </span>
+                  </div>
+                  <div class="accordion-slide">
+                    <div class="w-full">
+                      <p class="mt-4 leading-relaxed">
+                        Our hands and feet work hard for us every day but rarely get the attention they
+                        deserve. Treat them to a manicure or pedicure, which usually comes with the
+                        added bonus of a quick hand or foot massage.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <a href="spa.php" class="btn-primary group mt-8 w-fit">
                 Discover the Spa
                 <iconify-icon
@@ -231,42 +300,6 @@ $services = [
                 ></iconify-icon>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Additional Services -->
-      <section
-        id="services"
-        data-aos="fade-up"
-        class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
-      >
-        <div class="delimiter">
-          <div class="text-center">
-            <h2>Additional Services</h2>
-            <p class="mx-auto mt-4 max-w-2xl leading-relaxed">
-              Enhance your stay with a curated selection of in-villa services designed to elevate
-              comfort, convenience and personalised experiences. Our team is here to assist with
-              everything you need for a seamless stay in Bali.
-            </p>
-          </div>
-          <div class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3 xl:mt-16 xl:gap-10">
-            <?php foreach ($services as $service) : ?>
-            <a href="<?php echo $service['link']; ?>" class="group flex h-full flex-col bg-white p-8 transition-shadow hover:shadow-md xl:p-10">
-              <iconify-icon icon="<?php echo $service['icon']; ?>" class="!text-brand !text-3xl"></iconify-icon>
-              <h3 class="mt-6 !text-lg md:!text-xl"><?php echo $service['title']; ?></h3>
-              <p class="mt-3 leading-relaxed"><?php echo $service['text']; ?></p>
-              <div class="mt-6 flex flex-1 items-end">
-                <span class="text-brand inline-flex items-center gap-1 text-sm font-medium">
-                  Learn More
-                  <iconify-icon
-                    icon="ph:arrow-right"
-                    class="!text-brand transition-transform group-hover:translate-x-1"
-                  ></iconify-icon>
-                </span>
-              </div>
-            </a>
-            <?php endforeach; ?>
           </div>
         </div>
       </section>
@@ -325,27 +358,68 @@ $services = [
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- CTA: Plan Your Stay -->
+      <?php if ($showPlanYourStay) : ?>
       <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
-        <div class="mx-auto w-full max-w-3xl px-6 text-center">
-          <h2>Plan Your Stay</h2>
-          <p class="mx-auto mt-4 max-w-xl leading-relaxed">
-            Tell our team what you have in mind and we will shape the villa, the menu and the days
-            around your group.
-          </p>
-          <div class="mt-8 flex justify-center">
-            <a
-              href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*tknxhq*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary group"
-            >
-              Book Now
-              <iconify-icon
-                icon="ph:arrow-right"
-                class="group-hover:animate-bounce-right"
-              ></iconify-icon>
+        <div class="delimiter">
+          <div class="divider"></div>
+          <div class="mx-auto mt-16 max-w-3xl text-center md:mt-20 xl:mt-28">
+            <h2>Plan Your Stay</h2>
+            <p class="mx-auto mt-4 max-w-xl leading-relaxed">
+              Tell our team what you have in mind and we will shape the villa, the menu and the days
+              around your group.
+            </p>
+            <div class="mt-8 flex justify-center">
+              <a
+                href="https://booking.privatehomesandvillas.com/availvillas.html?villaid=BayuGitaEstate#_gl=1*tknxhq*_gcl_au*MTQ5ODYwMjY0OC4xNzgwOTk4Njcy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary group"
+              >
+                Book Now
+                <iconify-icon
+                  icon="ph:arrow-right"
+                  class="group-hover:animate-bounce-right"
+                ></iconify-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+
+      <!-- Additional Services -->
+      <section
+        id="services"
+        data-aos="fade-up"
+        class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
+      >
+        <div class="delimiter">
+          <div class="text-center">
+            <h2>Additional Services</h2>
+            <p class="mx-auto mt-4 max-w-2xl leading-relaxed">
+              Enhance your stay with a curated selection of in-villa services designed to elevate
+              comfort, convenience and personalised experiences. Our team is here to assist with
+              everything you need for a seamless stay in Bali.
+            </p>
+          </div>
+          <div class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3 xl:mt-16 xl:gap-10">
+            <?php foreach ($services as $service) : ?>
+            <a href="<?php echo $service['link']; ?>" class="group flex h-full flex-col bg-white p-8 transition-shadow hover:shadow-md xl:p-10">
+              <iconify-icon icon="<?php echo $service['icon']; ?>" class="!text-brand !text-3xl"></iconify-icon>
+              <h3 class="mt-6 !text-lg md:!text-xl"><?php echo $service['title']; ?></h3>
+              <p class="mt-3 leading-relaxed"><?php echo $service['text']; ?></p>
+              <div class="mt-6 flex flex-1 items-end">
+                <span class="text-brand inline-flex items-center gap-1 text-sm font-medium">
+                  Learn More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
             </a>
+            <?php endforeach; ?>
           </div>
         </div>
       </section>

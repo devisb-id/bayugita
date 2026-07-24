@@ -536,6 +536,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (trigger && slide) {
       trigger.addEventListener('click', function () {
         const isOpen = slide.classList.contains('open');
+
+        // Single-open group: collapse siblings before opening
+        const group = item.closest('[data-accordion-single]');
+        if (group && !isOpen) {
+          group.querySelectorAll('.accordion-item').forEach(function (other) {
+            if (other === item) return;
+            const otherSlide = other.querySelector('.accordion-slide');
+            const otherCaret = other.querySelector('.accordion-trigger iconify-icon');
+            otherSlide?.classList.remove('open');
+            if (otherCaret) otherCaret.style.transform = 'rotate(0deg)';
+          });
+        }
+
         if (isOpen) {
           slide.classList.remove('open');
           if (caret) caret.style.transform = 'rotate(0deg)';

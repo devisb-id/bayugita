@@ -141,7 +141,7 @@ $more_stories = [
               tropical garden and boasts its own 11-metre swimming pool and garden gazebo with
               jacuzzi. Rented alongside the Beachfront villa, the estate accommodates up to 18
               adults &mdash; enough for the multi-generational gatherings, milestone birthdays and
-              quiet corporate retreats that fill its calendar.
+              quiet retreats that fill its calendar.
             </p>
             <p class="mt-4 leading-relaxed">
               Ketewel itself remains refreshingly unhurried. Ubud is a 30-minute drive away, the

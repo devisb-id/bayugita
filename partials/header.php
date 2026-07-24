@@ -55,7 +55,7 @@
               class="invisible absolute top-full left-1/2 z-50 min-w-56 -translate-x-1/2 translate-y-2 bg-white opacity-0 shadow-md transition-all duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100"
             >
               <a href="weddings.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Weddings</a>
-              <a href="retreats.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Corporate Retreats</a>
+              <a href="retreats.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Retreats</a>
             </div>
           </div>
           <a
@@ -134,7 +134,7 @@
         </button>
         <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
           <a href="weddings.php" class="text-dark-500 hover:text-brand py-2 text-sm">Weddings</a>
-          <a href="retreats.php" class="text-dark-500 hover:text-brand py-2 text-sm">Corporate Retreats</a>
+          <a href="retreats.php" class="text-dark-500 hover:text-brand py-2 text-sm">Retreats</a>
         </div>
       </div>
       <a href="gallery.php" class="text-dark hover:text-brand py-3 text-sm">Gallery</a>

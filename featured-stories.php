@@ -72,8 +72,8 @@ $stories = [
   [
     'title' => 'Working Away From the Office',
     'image' => 'assets/images/retreats-sitting.webp',
-    'alt' => 'Corporate retreat setting at Villa Bayu Gita',
-    'excerpt' => 'Why corporate retreats find their focus at a villa where the meeting room opens onto the Badung Straits.',
+    'alt' => 'Retreat setting at Villa Bayu Gita',
+    'excerpt' => 'Why retreats find their focus at a villa where the meeting room opens onto the Badung Straits.',
   ],
 ];
 ?>

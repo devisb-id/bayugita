@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Corporate Retreats - Villa Bayu Gita, Bali</title>
+  <title>Retreats - Villa Bayu Gita, Bali</title>
   <meta
     name="description"
     content="Two exceptional villas comprise the Villa Bayu Gita complex, accommodating 18 adults, making it a great venue for large corporate gatherings and retreats on Bali's south-east coast." />
@@ -34,7 +34,7 @@
       <section class="relative h-[60vh] w-full overflow-hidden md:h-[70vh] xl:h-[80vh]">
         <img
           src="assets/images/retreats-hero.webp"
-          alt="Villa Bayu Gita - Corporate Retreats"
+          alt="Villa Bayu Gita - Retreats"
           class="parallax w-full object-cover"
         />
       </section>
@@ -45,7 +45,7 @@
           <div class="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-12">
             <!-- Content -->
             <div class="flex flex-col justify-center py-4 md:py-8">
-              <h1>Corporate Retreats</h1>
+              <h1>Retreats</h1>
               <p class="mt-6 leading-relaxed">
                 Two exceptional villas comprise the Villa Bayu Gita complex, accommodating a total of
                 18 adults, making it a great venue for large corporate gatherings.
@@ -118,7 +118,7 @@
       <!-- Retreat CTA -->
       <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
         <div class="mx-auto w-full max-w-3xl px-6 text-center">
-          <h2>Plan Your Corporate Retreat</h2>
+          <h2>Plan Your Retreat</h2>
           <p class="mx-auto mt-4 max-w-xl leading-relaxed">
             Get in touch with our team to check availability and discuss how Villa Bayu Gita can
             fulfill your corporate event needs.

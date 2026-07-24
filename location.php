@@ -188,26 +188,33 @@ $activities = [
         data-aos="fade-up"
         class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
       >
-        <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="grid grid-cols-1 items-start gap-10 md:grid-cols-2 md:gap-12">
-            <!-- Left: intro + image -->
+        <div class="delimiter">
+          <!-- Intro -->
+          <div class="mx-auto max-w-3xl text-center">
+            <h2>Things to Do</h2>
+            <p class="mt-6 leading-relaxed">
+              Bayu Gita&rsquo;s manager will have a wealth of information about nearby places of
+              interest and will help arrange transport and make any bookings required. Do also ask
+              the staff about the local area &ndash; many of them live nearby and can give an
+              interesting insight into some of the fascinating aspects of Bali life. In the meantime,
+              here is a taste of the many and varied activities on offer within reach of the villas.
+            </p>
+          </div>
+          <!-- Activity accordions: 2 independent columns, single-open -->
+          <div
+            class="mx-auto mt-10 grid max-w-6xl grid-cols-1 items-start gap-x-10 md:mt-12 md:grid-cols-2"
+            data-accordion-single
+          >
+            <?php
+            // Split into 2 columns keeping left-right reading order per row
+            $columns = [[], []];
+            foreach ($activities as $i => $activity) {
+              $columns[$i % 2][] = $activity;
+            }
+            foreach ($columns as $column): ?>
             <div class="flex flex-col">
-              <h2>Things to Do</h2>
-              <p class="mt-6 leading-relaxed">
-                Bayu Gita&rsquo;s manager will have a wealth of information about nearby places of
-                interest and will help arrange transport and make any bookings required. Do also ask
-                the staff about the local area &ndash; many of them live nearby and can give an
-                interesting insight into some of the fascinating aspects of Bali life.
-              </p>
-              <p class="mt-6 leading-relaxed">
-                In the meantime, here is a taste of the many and varied activities on offer within
-                reach of the villas.
-              </p>
-            </div>
-            <!-- Right: activity accordions -->
-            <div>
-              <?php foreach ($activities as $i => [$title, $body]): ?>
-              <div class="accordion-item <?php echo $i === 0 ? '' : 'mt-4 '; ?>border-b border-gray-200 pb-4">
+              <?php foreach ($column as [$title, $body]): ?>
+              <div class="accordion-item mb-4 border-b border-gray-200 pb-4">
                 <div class="accordion-trigger flex cursor-pointer items-center justify-between">
                   <h3><?php echo $title; ?></h3>
                   <span class="btn-primary !p-2">
@@ -225,6 +232,7 @@ $activities = [
               </div>
               <?php endforeach; ?>
             </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </section>
