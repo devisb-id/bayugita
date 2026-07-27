@@ -707,7 +707,7 @@
             </div>
           </div>
           <!-- CTA -->
-          <div class="mt-12 flex flex-wrap items-center justify-center gap-4 md:mt-16">
+          <!-- <div class="mt-12 flex flex-wrap items-center justify-center gap-4 md:mt-16">
             <a href="rates.php" class="btn-primary group">
               Check Availability
               <iconify-icon
@@ -722,7 +722,7 @@
             >
               Enquire Now
             </button>
-          </div>
+          </div> -->
         </div>
       </section>
 
