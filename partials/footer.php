@@ -21,15 +21,13 @@
             <iconify-icon icon="ri:whatsapp-fill" class="!text-white"></iconify-icon>
             Contact Us on Whatsapp
           </a>
-          <button
-            type="button"
-            data-modal-open="modal-enquiry"
+          <a href="contact-us.php"
             class="inline-flex cursor-pointer items-center gap-2 text-sm text-white hover:text-white/70"
           >
             <iconify-icon icon="ph:envelope-simple" class="!text-white"></iconify-icon>
             Enquire Now
             <iconify-icon icon="ph:arrow-right" class="!text-white"></iconify-icon>
-          </button>
+          </a>
         </div>
       </div>
       <!-- Right -->
