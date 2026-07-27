@@ -46,7 +46,7 @@
           <!-- Special Events -->
           <div class="group/nav relative py-4">
             <button
-              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white <?php echo (isset($page) && ($page === 'weddings' || $page === 'retreats' || $page === 'special-events')) ? 'active' : 'hover:text-white/70'; ?>"
+              class="xl:!text-sm flex cursor-pointer items-center gap-1 text-sm tracking-wider text-white <?php echo (isset($page) && ($page === 'weddings' || $page === 'Events' || $page === 'special-events')) ? 'active' : 'hover:text-white/70'; ?>"
             >
               Special Events
               <iconify-icon icon="ph:caret-down" class="!text-xs !text-white/80"></iconify-icon>
@@ -55,7 +55,7 @@
               class="invisible absolute top-full left-1/2 z-50 min-w-56 -translate-x-1/2 translate-y-2 bg-white opacity-0 shadow-md transition-all duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100"
             >
               <a href="weddings.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Weddings</a>
-              <a href="retreats.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Retreats</a>
+              <a href="events.php" class="text-dark hover:bg-brand-50 block px-5 py-3 text-sm">Events</a>
             </div>
           </div>
           <a
@@ -72,16 +72,23 @@
           </a>
         </nav>
         <!-- CTA (right) -->
-        <div class="hidden items-center justify-self-end xl:flex">
-          <a
-            href="https://booking.luxsomanagement.com/?ownerid=156681&propid=337373"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary"
-          >
-            Book Now
-          </a>
-        </div>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            
+            <button
+              type="button"
+              data-modal-open="modal-enquiry"
+              class="btn-secondary cursor-pointer"
+            >
+            GET IN TOUCH
+            </button>
+            <a href="rates.php" class="btn-primary group">
+              BOOK NOW
+              <iconify-icon
+                icon="ph:arrow-right"
+                class="group-hover:animate-bounce-right"
+              ></iconify-icon>
+            </a>
+          </div>
         <button
           id="mobile-navbar-open"
           class="col-start-3 flex size-10 cursor-pointer items-center justify-end justify-self-end text-white xl:hidden"
@@ -134,7 +141,7 @@
         </button>
         <div class="mobile-nav-panel hidden flex-col gap-1 pl-4">
           <a href="weddings.php" class="text-dark-500 hover:text-brand py-2 text-sm">Weddings</a>
-          <a href="retreats.php" class="text-dark-500 hover:text-brand py-2 text-sm">Retreats</a>
+          <a href="events.php" class="text-dark-500 hover:text-brand py-2 text-sm">Events</a>
         </div>
       </div>
       <a href="gallery.php" class="text-dark hover:text-brand py-3 text-sm">Gallery</a>

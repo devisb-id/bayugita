@@ -104,19 +104,41 @@ $weddingFacts = [
             </p>
           </div>
           <!-- Wedding facts list -->
-          <ul class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+          <div class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-x-10 gap-y-0 md:mt-12 md:grid-cols-2">
             <?php foreach ($weddingFacts as $fact): ?>
-            <li class="flex items-center gap-5">
-              <div class="bg-brand-50 flex size-14 shrink-0 items-center justify-center">
-                <iconify-icon icon="<?php echo $fact['icon']; ?>" class="!text-brand !text-2xl"></iconify-icon>
+              <div class="flex items-center justify-between gap-4 border-b border-gray-200 py-5">
+                <div class="flex items-center gap-4">
+                  <span class="text-dark"><?php echo $fact['title']; ?></span>
+                </div>
+
+                <span class="text-brand font-medium whitespace-nowrap">
+                  <?php echo $fact['text']; ?>
+                </span>
               </div>
-              <div class="text-left">
-                <h3><?php echo $fact['title']; ?></h3>
-                <p class="mt-1 leading-relaxed"><?php echo $fact['text']; ?></p>
-              </div>
-            </li>
             <?php endforeach; ?>
-          </ul>
+          </div>
+
+          <!-- Event guidelines downloads -->
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-12">
+            <a
+              href="assets/pdfs/bayu-gita-event-guidelines.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary group inline-flex items-center gap-2"
+            >
+              <iconify-icon icon="ph:file-pdf"></iconify-icon>
+              Event Guidelines for Villa Bayu Gita
+            </a>
+            <a
+              href="assets/pdfs/general-event-guidelines.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary group inline-flex items-center gap-2"
+            >
+              <iconify-icon icon="ph:file-pdf"></iconify-icon>
+              General Guidelines for Events
+            </a>
+          </div>
         </div>
       </section>
 
@@ -161,32 +183,15 @@ $weddingFacts = [
             </div>
           </div>
 
-          <!-- Event guidelines downloads -->
-          <div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-12">
-            <a
-              href="assets/pdfs/bayu-gita-event-guidelines.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-secondary group inline-flex items-center gap-2"
-            >
-              <iconify-icon icon="ph:file-pdf"></iconify-icon>
-              Event Guidelines for Villa Bayu Gita
-            </a>
-            <a
-              href="assets/pdfs/general-event-guidelines.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-secondary group inline-flex items-center gap-2"
-            >
-              <iconify-icon icon="ph:file-pdf"></iconify-icon>
-              General Guidelines for Events
-            </a>
-          </div>
         </div>
       </section>
 
+      <div class="delimiter mt-16 md:mt-20">
+        <div class="divider"></div>
+      </div>
+
       <!-- CTA -->
-      <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
+      <section data-aos="fade-up" class="mb-16 md:mb-20 xl:mb-28">
         <div class="mx-auto w-full max-w-3xl px-6 text-center">
           <h2>Plan Your Celebration</h2>
           <p class="mx-auto mt-4 max-w-xl leading-relaxed">

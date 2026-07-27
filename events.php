@@ -1,4 +1,4 @@
-<?php $page = 'retreats'; ?>
+<?php $page = 'Events'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -6,10 +6,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Retreats - Villa Bayu Gita, Bali</title>
+  <title>Events - Villa Bayu Gita, Bali</title>
   <meta
     name="description"
-    content="Two exceptional villas comprise the Villa Bayu Gita complex, accommodating 18 adults, making it a great venue for large corporate gatherings and retreats on Bali's south-east coast." />
+    content="Two exceptional villas comprise the Villa Bayu Gita complex, accommodating 18 adults, making it a great venue for large corporate gatherings and Events on Bali's south-east coast." />
   <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
   <link rel="stylesheet" href="assets/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/aos/aos.css" />
@@ -33,19 +33,38 @@
       <!-- Hero Section -->
       <section class="relative h-[60vh] w-full overflow-hidden md:h-[70vh] xl:h-[80vh]">
         <img
-          src="assets/images/retreats-hero.webp"
-          alt="Villa Bayu Gita - Retreats"
+          src="assets/images/Retreats-hero.webp"
+          alt="Villa Bayu Gita - Events"
           class="parallax w-full object-cover"
         />
       </section>
-
+<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-12">
+            <a
+              href="assets/pdfs/bayu-gita-event-guidelines.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary group inline-flex items-center gap-2"
+            >
+              <iconify-icon icon="ph:file-pdf"></iconify-icon>
+              Event Guidelines for Villa Bayu Gita
+            </a>
+            <a
+              href="assets/pdfs/general-event-guidelines.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary group inline-flex items-center gap-2"
+            >
+              <iconify-icon icon="ph:file-pdf"></iconify-icon>
+              General Guidelines for Events
+            </a>
+          </div>
       <!-- Group 1: Content + Image -->
       <section data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
         <div class="mx-auto w-full max-w-6xl px-6">
           <div class="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-12">
             <!-- Content -->
             <div class="flex flex-col justify-center py-4 md:py-8">
-              <h1>Retreats</h1>
+              <h1>Events</h1>
               <p class="mt-6 leading-relaxed">
                 Two exceptional villas comprise the Villa Bayu Gita complex, accommodating a total of
                 18 adults, making it a great venue for large corporate gatherings.
@@ -61,7 +80,7 @@
             <!-- Image -->
             <div class="min-h-[28rem] overflow-hidden md:min-h-[40rem]">
               <img
-                src="assets/images/retreats-pool-bar.webp"
+                src="assets/images/Retreats-pool-bar.webp"
                 alt="Villa Bayu Gita Beachfront - Pool and Bar"
                 class="parallax w-full object-cover"
                 loading="lazy"
@@ -78,7 +97,7 @@
             <!-- Image (appears first on mobile, first on desktop) -->
             <div class="min-h-[28rem] overflow-hidden md:min-h-[40rem]">
               <img
-                src="assets/images/retreats-sitting.webp"
+                src="assets/images/Retreats-sitting.webp"
                 alt="Villa Bayu Gita Beachfront - Sitting and Dining Area"
                 class="parallax w-full object-cover"
                 loading="lazy"
@@ -115,8 +134,12 @@
         </div>
       </section>
 
+      <div class="delimiter mt-16 md:mt-20">
+        <div class="divider"></div>
+      </div>
+
       <!-- Retreat CTA -->
-      <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
+      <section data-aos="fade-up" class="mb-16 md:mb-20 xl:mb-28 mt-16 md:mt-20">
         <div class="mx-auto w-full max-w-3xl px-6 text-center">
           <h2>Plan Your Retreat</h2>
           <p class="mx-auto mt-4 max-w-xl leading-relaxed">
