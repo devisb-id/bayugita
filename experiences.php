@@ -305,7 +305,7 @@ $services = [
       </section>
 
       <!-- Life Beyond the Villa -->
-      <section id="beyond" data-aos="fade-up" class="mt-16 md:mt-20 xl:mt-28">
+      <section id="beyond" data-aos="fade-up" class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28">
         <div class="delimiter">
           <div class="text-center">
             <h2>Life Beyond the Villa</h2>
@@ -358,9 +358,44 @@ $services = [
         </div>
       </section>
 
-      <!-- CTA: Plan Your Stay -->
+      <!-- Additional Services -->
+      <section
+        id="services"
+        data-aos="fade-up"
+        class="mt-16 md:mt-20 xl:mt-28"
+      >
+        <div class="delimiter">
+          <div class="text-center">
+            <h2>Additional Services</h2>
+            <p class="mx-auto mt-4 max-w-2xl leading-relaxed">
+              Enhance your stay with a curated selection of in-villa services designed to elevate
+              comfort, convenience and personalised experiences. Our team is here to assist with
+              everything you need for a seamless stay in Bali.
+            </p>
+          </div>
+          <div class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3 xl:mt-16 xl:gap-10">
+            <?php foreach ($services as $service) : ?>
+            <a href="<?php echo $service['link']; ?>" class="group flex h-full flex-col bg-white border border-gray-200 p-8 transition-shadow hover:shadow-md xl:p-10">
+              <iconify-icon icon="<?php echo $service['icon']; ?>" class="!text-brand !text-3xl"></iconify-icon>
+              <h3 class="mt-6 !text-lg md:!text-xl"><?php echo $service['title']; ?></h3>
+              <p class="mt-3 leading-relaxed"><?php echo $service['text']; ?></p>
+              <div class="mt-6 flex flex-1 items-end">
+                <span class="text-brand inline-flex items-center gap-1 text-sm font-medium">
+                  Learn More
+                  <iconify-icon
+                    icon="ph:arrow-right"
+                    class="!text-brand transition-transform group-hover:translate-x-1"
+                  ></iconify-icon>
+                </span>
+              </div>
+            </a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </section>
+<!-- CTA: Plan Your Stay -->
       <?php if ($showPlanYourStay) : ?>
-      <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
+      <section data-aos="fade-up" class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28">
         <div class="delimiter">
           <div class="divider"></div>
           <div class="mx-auto mt-16 max-w-3xl text-center md:mt-20 xl:mt-28">
@@ -387,43 +422,6 @@ $services = [
         </div>
       </section>
       <?php endif; ?>
-
-      <!-- Additional Services -->
-      <section
-        id="services"
-        data-aos="fade-up"
-        class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28"
-      >
-        <div class="delimiter">
-          <div class="text-center">
-            <h2>Additional Services</h2>
-            <p class="mx-auto mt-4 max-w-2xl leading-relaxed">
-              Enhance your stay with a curated selection of in-villa services designed to elevate
-              comfort, convenience and personalised experiences. Our team is here to assist with
-              everything you need for a seamless stay in Bali.
-            </p>
-          </div>
-          <div class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3 xl:mt-16 xl:gap-10">
-            <?php foreach ($services as $service) : ?>
-            <a href="<?php echo $service['link']; ?>" class="group flex h-full flex-col bg-white p-8 transition-shadow hover:shadow-md xl:p-10">
-              <iconify-icon icon="<?php echo $service['icon']; ?>" class="!text-brand !text-3xl"></iconify-icon>
-              <h3 class="mt-6 !text-lg md:!text-xl"><?php echo $service['title']; ?></h3>
-              <p class="mt-3 leading-relaxed"><?php echo $service['text']; ?></p>
-              <div class="mt-6 flex flex-1 items-end">
-                <span class="text-brand inline-flex items-center gap-1 text-sm font-medium">
-                  Learn More
-                  <iconify-icon
-                    icon="ph:arrow-right"
-                    class="!text-brand transition-transform group-hover:translate-x-1"
-                  ></iconify-icon>
-                </span>
-              </div>
-            </a>
-            <?php endforeach; ?>
-          </div>
-        </div>
-      </section>
-
     </main>
 
     <?php include 'partials/footer.php'; ?>
