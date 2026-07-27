@@ -33,7 +33,7 @@
       <!-- Hero Section -->
       <section class="relative h-[60vh] w-full overflow-hidden md:h-[70vh] xl:h-[80vh]">
         <img
-          src="assets/images/Retreats-hero.webp"
+          src="assets/images/retreats-hero.webp"
           alt="Villa Bayu Gita - Events"
           class="parallax w-full object-cover"
         />
@@ -80,7 +80,7 @@
             <!-- Image -->
             <div class="min-h-[28rem] overflow-hidden md:min-h-[40rem]">
               <img
-                src="assets/images/Retreats-pool-bar.webp"
+                src="assets/images/retreats-pool-bar.webp"
                 alt="Villa Bayu Gita Beachfront - Pool and Bar"
                 class="parallax w-full object-cover"
                 loading="lazy"
@@ -97,7 +97,7 @@
             <!-- Image (appears first on mobile, first on desktop) -->
             <div class="min-h-[28rem] overflow-hidden md:min-h-[40rem]">
               <img
-                src="assets/images/Retreats-sitting.webp"
+                src="assets/images/retreats-sitting.webp"
                 alt="Villa Bayu Gita Beachfront - Sitting and Dining Area"
                 class="parallax w-full object-cover"
                 loading="lazy"
