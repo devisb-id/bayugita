@@ -395,7 +395,7 @@ $services = [
       </section>
 <!-- CTA: Plan Your Stay -->
       <?php if ($showPlanYourStay) : ?>
-      <section data-aos="fade-up" class="mt-16 bg-gray-100 py-16 md:mt-20 md:py-20 xl:mt-28 xl:py-28">
+      <section data-aos="fade-up" class="mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28">
         <div class="delimiter">
           <div class="divider"></div>
           <div class="mx-auto mt-16 max-w-3xl text-center md:mt-20 xl:mt-28">
