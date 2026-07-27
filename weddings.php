@@ -191,7 +191,7 @@ $weddingFacts = [
       </div>
 
       <!-- CTA -->
-      <section data-aos="fade-up" class="mb-16 md:mb-20 xl:mb-28">
+      <section data-aos="fade-up" class="mb-16 md:mb-20 xl:mb-28 mt-16 md:mt-20">
         <div class="mx-auto w-full max-w-3xl px-6 text-center">
           <h2>Plan Your Celebration</h2>
           <p class="mx-auto mt-4 max-w-xl leading-relaxed">
