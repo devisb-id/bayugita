@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="main" class="site-main">
+<div id="main" class="site-main delimiter pt-36 md:pt-40 xl:pt-48">
 	<?php if ( have_posts() ) : ?>
 		<header class="page-header">
 			<?php
@@ -29,7 +29,7 @@ get_header();
 		get_template_part( 'template-parts/content', 'none' );
 	endif;
 	?>
-</main>
+</div>
 
 <?php
 get_sidebar();

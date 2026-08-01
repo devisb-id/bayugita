@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="main" class="site-main">
+<div id="main" class="site-main delimiter pt-36 md:pt-40 xl:pt-48">
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -26,7 +26,7 @@ get_header();
 		}
 	endwhile;
 	?>
-</main>
+</div>
 
 <?php
 get_sidebar();

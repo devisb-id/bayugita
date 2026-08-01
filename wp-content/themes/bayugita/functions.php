@@ -50,6 +50,7 @@ function bayugita_assets() {
 	// Vendor CSS.
 	wp_enqueue_style( 'swiper', $uri . '/assets/swiper/swiper-bundle.min.css', array(), $ver( '/assets/swiper/swiper-bundle.min.css' ) );
 	wp_enqueue_style( 'aos', $uri . '/assets/aos/aos.css', array(), $ver( '/assets/aos/aos.css' ) );
+	wp_enqueue_style( 'lightgallery', 'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css', array(), '2.7.2' );
 
 	// Theme header stylesheet + Tailwind build.
 	wp_enqueue_style( 'bayugita-style', get_stylesheet_uri(), array(), BAYUGITA_VERSION );
@@ -63,6 +64,12 @@ function bayugita_assets() {
 	wp_enqueue_script( 'lenis', 'https://unpkg.com/lenis@1.1.5/dist/lenis.min.js', array(), '1.1.5', $defer );
 	wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), '3.12.5', $defer );
 	wp_enqueue_script( 'bayugita-script', $uri . '/assets/scripts/script.js', array( 'swiper', 'aos', 'gsap', 'lenis' ), $ver( '/assets/scripts/script.js' ), $defer );
+
+	// lightGallery (photo/video lightbox) + section interactions (rates/reviews/pagination).
+	wp_enqueue_script( 'lightgallery', 'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js', array(), '2.7.2', $defer );
+	wp_enqueue_script( 'lg-zoom', 'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js', array( 'lightgallery' ), '2.7.2', $defer );
+	wp_enqueue_script( 'lg-video', 'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js', array( 'lightgallery' ), '2.7.2', $defer );
+	wp_enqueue_script( 'bayugita-interactions', $uri . '/assets/scripts/theme-interactions.js', array( 'lightgallery' ), $ver( '/assets/scripts/theme-interactions.js' ), $defer );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

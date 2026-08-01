@@ -77,6 +77,33 @@ function bayugita_section_atts( $extra_class = '' ) {
 }
 
 /**
+ * Resolve the destination URL of a button group (3 conditions), no markup.
+ *
+ * @param array $button Button group data.
+ * @return string URL or empty string.
+ */
+function bayugita_button_url( $button ) {
+	if ( empty( $button ) ) {
+		return '';
+	}
+	$type = isset( $button['button_type'] ) ? $button['button_type'] : 'internal';
+	switch ( $type ) {
+		case 'external':
+			return isset( $button['button_external_url'] ) ? $button['button_external_url'] : '';
+		case 'download':
+			$file = isset( $button['button_download_file'] ) ? $button['button_download_file'] : '';
+			return is_array( $file ) ? ( $file['url'] ?? '' ) : (string) $file;
+		case 'internal':
+		default:
+			$link = isset( $button['button_internal_link'] ) ? $button['button_internal_link'] : '';
+			if ( is_array( $link ) ) {
+				return get_permalink( $link['ID'] ?? 0 );
+			}
+			return (string) $link;
+	}
+}
+
+/**
  * Render a button from the reusable button group (3 conditions).
  *
  * Expected keys: button_label, button_type (internal|external|download),

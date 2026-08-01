@@ -1,98 +1,109 @@
-# Bayu Gita — Section Audit & Flexible Content Plan (FASE 1)
+# Bayu Gita — Flexible Content Documentation (Final)
 
-Hasil scan 20 halaman `static-file/` + 10 partial. Tujuan: satu Flexible Content `page_sections` (SCF) yang bisa menyusun semua halaman via kombinasi layout.
+Konversi 20 halaman static → satu SCF Flexible Content `page_sections` (22 layout). Setiap layout = 1 file di `theme-parts/`, di-load `page.php`/`front-page.php` via `get_row_layout()`.
 
-> Catatan penting: file `scf-structure.json` yang ada di root **ternyata sudah berupa page-builder untuk site ini** (18 layout). Saya pakai sebagai kerangka format + naming, lalu tambahkan aturan wajib kamu (heading selector, button group 3-kondisi, background palette, `section_id`) yang belum ada di referensi. Backup → `scf-structure.example.json`.
+## Bugfix (audit lanjutan)
+- **`<main>` ganda**: `index/single/archive/search/404.php` membuka `<main>` sendiri padahal `header.php` sudah buka & `footer.php` tutup → nested main (invalid HTML). Diganti `<div id="main">` + padding `pt-36`.
+- **card-grid link mati**: field `link` = button group (internal/external/download) tapi template cek `$link['url']` (tak pernah ada). Ditambah helper `bayugita_button_url()`, dipakai di card-grid.
 
----
+## Keputusan arsitektur (disetujui)
+- **Stories** → WP post biasa (`featured_stories` pakai `post_object`/query).
+- **Reviews** → repeater di dalam `guest_reviews`.
+- **Special Offers** → CPT `special-offer` (`special_offers` pakai `post_object`).
+- **Rates** → layout `rates_table` (repeater villa→year→row).
+- **Form** → slot shortcode (CF7/WPForms) di `contact_form` + enquiry modal.
+- **Menu** → WP nav menu native + `Bayugita_Nav_Walker` (markup match header static).
 
-## 1. Inventaris Section per Halaman
+## File yang dibuat/diubah
+```
+style.css                         header tema WP (Bayu Gita)
+functions.php                     setup, menu, enqueue, CPT, options page
+inc/template-functions.php        helper: heading, bg palette, section atts, button, image, option
+inc/class-bayugita-nav-walker.php walker dropdown header
+header.php / footer.php           reproduksi partial static + dynamic settings
+front-page.php / page.php         loader flexible content
+theme-parts/*.php (22)            satu file per layout
+template-parts/global/*.php       page-transition, whatsapp-float, enquiry-modal (shortcode)
+template-parts/content*.php       loop parts standar (blog)
+assets/                           disalin dari static-file/ (css/js/img/font/pdf/video)
+scf-structure.json                field group final (import-ready)
+scf-structure.example.json        backup referensi lama
+```
 
-| Halaman | Section (urut) |
+## Aturan field wajib (diterapkan ke semua layout)
+- **Heading selector**: `heading_text` + `heading_tag` (select h1–h6, default h2). Render via `bayugita_the_heading()` — tag di-whitelist.
+- **Button 3-kondisi**: group `button` = `button_label` + `button_type` (internal/external/download) + field kondisional (`button_internal_link` page_link / `button_external_url` url / `button_download_file` file). Render via `bayugita_render_button()`. Multi-button = repeater `buttons`.
+- **Background palette**: `section_background` (select) → class via `bayugita_bg_class()`: default / white / cream(`bg-brand-25`) / brand(`bg-brand-50`) / gray(`bg-gray-100`) / dark(`bg-dark text-white`).
+- **Anchor**: `section_id` (text) → `id="..."` di wrapper.
+- **Image**: semua return `array` (srcset + alt via `bayugita_the_image()`).
+
+## Daftar layout & field utama
+
+| Layout | Field kunci (selain bg/id/heading) |
 |---|---|
-| **index** | hero slider · welcome split(image-left) · 2 villa cards · special offers(rel) · featured stories(rel) · guest reviews slider · location + map |
-| **villa-detail** | hero slider · about (intro + accordion + download) · bedrooms (image grid + accordion) · living&dining (band + wide img + 2col) · pool (wide img + 2col) · gym (tall img + content + accordion) · location&surroundings (tall img + content) · full-width image banner · villa facts (icon grid) |
-| **experiences** | hero image · intro · dining split · spa split(reversed)+accordion · families split · life-beyond (band + wide img + 3col) · services (icon card grid) · plan-your-stay CTA |
-| **concierge** | hero image · intro · text column |
-| **dining** | hero image · intro · wide image band · text column |
-| **spa** | hero image · intro split(image-right) · wide image band · on-the-menu (icon grid) |
-| **families** | hero image · intro · split(image-right) · split(image-left) |
-| **weddings** | hero slider · intro + facts list + download buttons · gallery grid · divider · CTA banner |
-| **events** | hero image · download buttons · split · split · divider · CTA banner |
-| **staff** | hero image · intro · image pair grid · team (icon grid) |
-| **rates** | rates tabbed table (villa/year tabs + availability bar + tables + modals) |
-| **special-offers** | intro · offers card grid(rel) + modals |
-| **contact-us** | contact form + address/social · map |
-| **location** | hero slider · intro · wide image band · distances (facts list) · things-to-do (band + accordion 2col) · attractions (image grid) |
-| **press** | intro · press cards grid |
-| **featured-stories** | intro · story cards grid(rel) · pagination |
-| **featured-stories-detail** | article header · article hero image · article body(wysiwyg) · more stories(rel) · back CTA |
-| **guest-review** | intro · filter tabs · reviews grid(rel) · pagination |
-| **floorplan** | intro · 2 floorplan blocks (framed image + download) · CTA |
-| **gallery** | intro · photo gallery(lightbox+pagination) · video gallery · CTA |
+| `hero_slider` | `slides`(repeater image), `overlay_title` |
+| `hero_image` | `image`, `overlay_title` |
+| `hero_video` | `video_type`, `video_file`, `youtube_url`, `overlay_title` |
+| `intro_text` | `layout_style`(centered/column), `eyebrow`, `body`(wysiwyg) |
+| `split_content` | `layout_selection`(L/R/text), `main_image`, `body`, `additional_content_type`(accordion/icon_list), `buttons` |
+| `feature_columns` | `wide_image`, `column_layout`(2/3), `columns`(title+text) |
+| `image_separator` | `aspect_ratio`(16:7/16:9/21:9), `image` |
+| `image_grid` | `display_style`(two_col/asymmetric/framed), `images`(image+title+eyebrow+download_file) |
+| `card_grid` | `intro`, `columns`(2/3/4), `cards`(image/icon+title+text+link button) |
+| `icon_grid` | `grid_layout`(2/3), `items`(icon+title+text) |
+| `facts_list` | `subtitle`, `rows`(icon+label+value) |
+| `accordion_list` | `intro`, `columns`(1/2), `items`(title+content) |
+| `featured_stories` | `columns`(3/4), `stories`(post_object), `button` |
+| `guest_reviews` | `intro`, `show_filters`, `reviews`(quote+dates+villa) |
+| `special_offers` | `intro`, `selected_offers`(post_object special-offer) |
+| `cta_banner` | `text`, `show_divider`, `buttons` |
+| `map_section` | `eyebrow`, `intro`, `map_embed_code` |
+| `contact_form` | `form_shortcode`, `address_text`, `social_links`(icon+url) |
+| `photo_gallery` | `intro`, `gallery_images`(gallery) |
+| `video_gallery` | `intro`, `videos`(file+poster+title) |
+| `rates_table` | `availability_url`, `villas`→`years`→`rows` |
+| `divider` | — |
 
-Partials (global, bukan section): `header` (nav 6 item + 2 dropdown + CTA), `footer` (brand/address/CTA/logo/social/policy), `whatsapp-float`, `enquiry-modal` (form + `$countries`), `page-transition`.
+**Global Site Settings** (options page `site-settings`): logo, favicon, partner_logo, whatsapp_number, booking_url, footer_address, footer_brand, social_instagram/facebook/tripadvisor, terms_url, privacy_url, copyright_text, enquiry_form_shortcode.
 
----
+## Cara import JSON
+1. Install plugin **Secure Custom Fields** (atau ACF).
+2. WP Admin → **Custom Fields → Tools → Import Field Groups**.
+3. Upload `scf-structure.json`. Muncul 2 group: **Page Builder** + **Global Site Settings**.
+4. Menu **Site Settings** muncul di sidebar (didaftarkan `functions.php`).
+5. Aktifkan theme **Bayu Gita**. Buat menu (Appearance → Menus) untuk lokasi *Primary Menu*.
 
-## 2. Keputusan Konsolidasi (mirip → 1 layout)
+## Checklist testing per halaman
+Buat Page baru, susun `page_sections` sesuai kolom "Section (urut)" di bawah, isi konten, lalu bandingkan dengan `static-file/<page>.php`.
 
-| Section mirip | Digabung jadi | Cara membedakan |
-|---|---|---|
-| Welcome, dining, spa, families, events, gym splits | **`split_content`** | select `layout` = image_left / image_right / text_only; + optional accordion / icon_list |
-| Intro centered (semua page) + article body + text column | **`intro_text`** | heading opsional + WYSIWYG body + select alignment/width |
-| Living&dining, pool, life-beyond | **`feature_columns`** | heading + wide image opsional + repeater kolom teks (2/3 col) |
-| Wide image band (dining/spa/location scenery, villa banner) | **`image_separator`** | 1 image full-width, opsi ratio |
-| Staff pair, location attractions, weddings gallery, floorplan blocks | **`image_grid`** | select style (2-col / asymmetric / framed+caption+download) |
-| Villa facts, spa menu, staff team | **`icon_grid`** | repeater icon+title+text, select 2/3 col |
-| Weddings facts, location distances, rates inclusions | **`facts_list`** | repeater label/value (+icon opsional) |
-| Index villas, experiences services, press cards | **`card_grid`** | repeater card (image/icon + title + text + button) |
-| Weddings CTA, events CTA, plan-your-stay, floorplan/gallery CTA, back-to-stories, download rows | **`cta_banner`** | heading + text + repeater button (button group) |
-| Location things-to-do, standalone accordions | **`accordion_list`** | repeater accordion + opsi 1/2 kolom |
-| Index/contact/location map | **`map_section`** | embed code / iframe |
+| Page | Susunan layout |
+|---|---|
+| Home | hero_slider · split_content(image_left) · card_grid(2) · special_offers · featured_stories · guest_reviews · map_section |
+| Villa Detail | hero_slider · intro_text · split_content×accordion · feature_columns · feature_columns · split_content · image_separator · icon_grid |
+| Experiences | hero_image · intro_text · split_content×3 · feature_columns · card_grid(3) · cta_banner |
+| Concierge/Dining/Spa/Families/Staff | hero_image · intro_text · (image_separator / split_content / icon_grid sesuai halaman) |
+| Weddings/Events | hero_slider/hero_image · intro_text+facts_list · image_grid · divider · cta_banner |
+| Rates | rates_table |
+| Special Offers | intro_text · special_offers |
+| Contact | contact_form · map_section |
+| Location | hero_slider · intro_text · image_separator · facts_list · accordion_list · image_grid |
+| Press/Featured Stories | intro_text · card_grid / featured_stories |
+| Guest Reviews | intro_text · guest_reviews(show_filters) |
+| Floorplan | intro_text · image_grid(framed) · cta_banner |
+| Gallery | photo_gallery · video_gallery · cta_banner |
 
-**Relationship-based (butuh CPT/post):** featured stories, guest reviews, special offers — punya listing + detail + filter/pagination. Mengikuti referensi JSON yang pakai `relationship`/`repeater`.
+Verifikasi tiap section: heading tag benar, background palette, button 3-kondisi (target/rel/download), image srcset+alt, anchor `section_id`.
 
----
+## Catatan / batasan
+- **JS interaktif**:
+  - `assets/scripts/script.js` (dari prototype): swiper hero, accordion, parallax, mobile nav, modal, page-transition.
+  - `assets/scripts/theme-interactions.js` (baru): lightGallery photo/video, pagination photo & review, rates villa/year tabs, review filter. Dulu ini inline per-halaman di static — sekarang diport global & aman (no-op bila markup absen).
+  - **lightGallery** di-enqueue dari jsDelivr (CSS + core + zoom + video plugin).
+- **Form** butuh plugin form; shortcode diisi di field section / Site Settings.
+- **Single templates**: `single-special-offer.php` (CPT offer) + `single.php` (story/post) memakai header/footer branded.
+- `static-file/` tidak diubah (source of truth). Semua konversi di luar folder itu.
 
-## 3. Daftar Final Layout yang Akan Dibuat (usulan)
-
-Prefix field key: `field_pb_<layout>_<field>`. Semua layout mendapat: `section_background` (palette), `section_id` (anchor). Layout ber-heading mendapat `heading_text` + `heading_tag`.
-
-| # | Layout (`name`) | Fungsi | Sumber section |
-|---|---|---|---|
-| 1 | `hero_slider` | Swiper multi-image hero (arrows+dots), overlay title opsional | index, villa-detail, weddings, location |
-| 2 | `hero_image` | Single parallax full-bleed image hero | experiences, concierge, dining, spa, families, events, staff |
-| 3 | `hero_video` | Video hero (upload/YouTube) — asset `villa-tour.webm` ada | (baru, opsional) |
-| 4 | `intro_text` | Heading + intro/WYSIWYG (centered / plain column) | semua page intro + article body + text column |
-| 5 | `split_content` | 2-col image+text (L/R/text-only) + accordion/icon_list opsional | welcome, dining, spa, families, events, gym, location |
-| 6 | `feature_columns` | Heading + wide image opsional + kolom teks 2/3 | living&dining, pool, life-beyond |
-| 7 | `image_separator` | Banner image full-width | villa banner, dining/spa/location band |
-| 8 | `image_grid` | Grid gambar (2-col / asymmetric / framed+download) | staff, attractions, weddings gallery, floorplan |
-| 9 | `photo_gallery` | Lightbox thumbnail grid + pagination | gallery |
-| 10 | `video_gallery` | Video cards lightbox | gallery |
-| 11 | `card_grid` | Repeater card (image/icon+title+text+button) | villas, services, press |
-| 12 | `icon_grid` | Repeater icon+title+text | villa facts, spa menu, team |
-| 13 | `facts_list` | Repeater label/value | weddings facts, distances |
-| 14 | `accordion_list` | Repeater accordion, 1/2 kolom | location things-to-do |
-| 15 | `featured_stories` | Relationship ke story | index, featured-stories, detail related |
-| 16 | `guest_reviews` | Reviews slider/grid (+filter tab) | index, guest-review |
-| 17 | `special_offers` | Relationship ke offer + modal | index, special-offers |
-| 18 | `cta_banner` | Heading + text + button(s) [button group 3-kondisi] | weddings, events, plan-stay, floorplan, gallery, back |
-| 19 | `map_section` | Map embed | index, contact, location |
-| 20 | `contact_form` | Form kontak (markup + shortcode slot) | contact-us |
-| 21 | `rates_table` | Tabbed rate table + availability bar + modals | rates |
-| 22 | `divider` | Garis pemisah | weddings, events |
-
-**Field group tambahan:** `Button` (clone, 3-kondisi internal/external/download) · `Global Site Settings` (options page: kontak/WA, address, sosmed, logo, booking link, policy links, copyright).
-
----
-
-## 4. Ambiguitas — Butuh Keputusan Kamu (sebelum FASE 2)
-
-1. **Stories / Reviews / Offers** → dibangun sebagai **Custom Post Type + relationship** (proper WP, ada listing+detail+filter+pagination asli) ATAU cukup **repeater manual** di dalam section (lebih simpel, tanpa halaman detail dinamis)?
-2. **Rates tabbed table + availability checker** (paling kompleks, banyak JS + modal inclusions/terms) → jadikan **1 layout `rates_table`** (data via repeater villa→year→baris) ATAU biarkan sebagai **template halaman khusus** (`page-rates.php`, di luar flexible content)?
-3. **Form (contact + enquiry modal)** → SCF tidak bikin form fungsional. Simpan sebagai **shortcode** (mis. Contact Form 7 / WPForms) yang di-embed, ATAU **markup statis** di template part (tanpa backend)?
-4. **Dropdown menu header (The Villa / Special Events)** → pakai **WP Menu native** (children jadi submenu, butuh CSS walker) — konfirmasi oke?
-
-Setelah kamu jawab 4 poin ini + approve daftar layout, saya lanjut FASE 2–5 otomatis.
+## Yang belum (sadar, di luar scope konversi)
+- Offer **modal** di listing (`modal-offer-{id}`) diganti link ke single offer — modal detail belum diport (opsional; bisa ditambah nanti).
+- Pagination photo/review kini fully client-side (semua item ter-render lalu di-hide) — untuk galeri sangat besar, pertimbangkan pagination server-side.
+- CSS Tailwind: `output.css` dari prototype dipakai apa adanya. Bila menambah class baru di theme-parts yang belum ada di output.css, perlu rebuild Tailwind (`input.css`).

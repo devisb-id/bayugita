@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="main" class="site-main">
+<div id="main" class="site-main delimiter pt-36 md:pt-40 xl:pt-48">
 	<section class="error-404 not-found">
 		<header class="page-header">
 			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bayugita' ); ?></h1>
@@ -19,7 +19,7 @@ get_header();
 			<?php get_search_form(); ?>
 		</div>
 	</section>
-</main>
+</div>
 
 <?php
 get_footer();

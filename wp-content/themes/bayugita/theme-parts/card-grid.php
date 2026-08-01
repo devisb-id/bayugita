@@ -33,13 +33,7 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 		<div class="mt-12 grid grid-cols-1 gap-8 <?php echo esc_attr( $grid_class ); ?> md:mt-16 xl:gap-10">
 			<?php
 			foreach ( $cards as $card ) :
-				$link = $card['link'] ?? array();
-				$href = '';
-				if ( ! empty( $link['url'] ) ) {
-					$href = $link['url'];
-				} elseif ( ! empty( $link['button_external_url'] ) ) {
-					$href = $link['button_external_url'];
-				}
+				$href  = bayugita_button_url( $card['link'] ?? array() );
 				$tag   = $href ? 'a' : 'div';
 				$attrs = $href ? ' href="' . esc_url( $href ) . '"' : '';
 				?>
