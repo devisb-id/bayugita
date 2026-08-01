@@ -1,0 +1,50 @@
+# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/xmlrpc.php
+/index.php
+/license.txt
+/readme.html
+!/wp-content/index.php
+
+# Config & environment
+wp-config.php
+.env
+.env.local
+
+# Uploads (biasanya tidak perlu di-commit)
+/wp-content/uploads/
+# Plugins (biasanya tidak perlu di-commit)
+/wp-content/plugins/
+
+# Cache
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/blogs.dir/
+
+# Plugins & themes pihak ketiga (opsional, kalau dikelola via composer/npm)
+# /wp-content/plugins/
+# /wp-content/themes/*
+# !/wp-content/themes/nama-tema-custom/
+
+# Node & build tools
+node_modules/
+vendor/
+.DS_Store
+
+# Log & debug
+*.log
+debug.log
+error_log
+
+# IDE / editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db

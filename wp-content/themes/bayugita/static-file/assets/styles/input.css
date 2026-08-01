@@ -1,0 +1,334 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-playfair: 'Playfair Display';
+  --font-roboto: 'Roboto';
+  --color-brand: #6da1b5;
+  --color-brand-25: #f7fafb;
+  --color-brand-50: #eef5f7;
+  --color-brand-100: #d6e6ec;
+  --color-brand-200: #b3d0db;
+  --color-brand-300: #8fb9c9;
+  --color-brand-400: #6da1b5;
+  --color-brand-500: #5a8da2;
+  --color-brand-600: #466289;
+  --color-brand-700: #36506f;
+  --color-brand-800: #283a52;
+  --color-brand-900: #1a2738;
+  --color-brand-950: #101926;
+  --color-background: #ffffff;
+  --color-dark: #282828;
+  --color-dark-100: #383838;
+  --color-dark-500: #1a1a1a;
+  --color-dark-900: #141414;
+  --color-dark-950: #000000;
+  --color-gray: #667085;
+  --color-gray-25: #fcfcfd;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f7;
+  --color-gray-200: #e4e7ec;
+  --color-gray-300: #d0d5dd;
+  --color-gray-400: #98a2b3;
+  --color-gray-500: #667085;
+  --color-gray-600: #475467;
+  --color-gray-700: #344054;
+  --color-gray-800: #182230;
+  --color-gray-900: #101828;
+  --color-gray-950: #0c111d;
+  --color-danger: #cc3466;
+  --color-success: #05df72;
+  --shadow-md: 0 8px 14px rgba(0, 0, 0, 0.05);
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+  --radius-6xl: 3rem;
+  --default-transition-duration: 300ms;
+  --animate-bounce-right: bounce-right 1s ease-in-out infinite;
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'Playfair Display';
+  font-weight: 400;
+  src: url('../fonts/playfair-display/PlayfairDisplay-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url('../fonts/roboto/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 300;
+  src: url('../fonts/roboto/Roboto-Light.ttf') format('truetype');
+}
+
+/* Keyframes */
+@keyframes bounce-right {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+@layer base {
+  html {
+    @apply max-w-full overflow-x-hidden overscroll-none;
+  }
+  body {
+    @apply font-roboto bg-background max-w-full font-light text-gray-500;
+  }
+  h1 {
+    @apply font-playfair text-dark text-3xl font-normal md:text-4xl xl:text-5xl;
+  }
+  h2 {
+    @apply font-playfair text-dark text-2xl font-normal md:text-3xl xl:text-4xl;
+  }
+  h3 {
+    @apply font-playfair text-dark text-lg font-normal md:text-xl xl:text-2xl;
+  }
+  h4 {
+    @apply text-dark text-base font-normal md:text-lg xl:text-xl;
+  }
+  h5 {
+    @apply text-dark text-sm font-normal md:text-base xl:text-base;
+  }
+  h6 {
+    @apply text-dark text-sm font-normal md:text-base xl:text-base;
+  }
+  span,
+  p,
+  b,
+  strong,
+  i,
+  u,
+  input,
+  label,
+  select,
+  textarea,
+  ul,
+  li {
+    @apply m-0 text-sm text-gray-500 transition-all xl:text-base;
+  }
+  a {
+    @apply cursor-pointer text-sm no-underline transition-all xl:text-base;
+  }
+  iconify-icon {
+    @apply relative inline-flex !h-[1em] !w-[1em] transition-all;
+  }
+}
+
+@layer components {
+  .delimiter {
+    @apply mx-auto w-full max-w-[96rem] px-6;
+  }
+  .divider {
+    @apply h-[1px] w-full bg-gray-200;
+  }
+  .btn-primary {
+    @apply bg-brand border-brand relative z-0 inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden border px-6 py-3.5 text-sm font-medium tracking-wider text-white uppercase transition-all hover:opacity-80;
+  }
+  .btn-primary iconify-icon {
+    @apply !text-white;
+  }
+  .btn-secondary {
+    @apply border-brand text-brand relative z-0 inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden border bg-transparent px-6 py-3.5 text-sm font-medium tracking-wider uppercase transition-all hover:opacity-80;
+  }
+  .btn-secondary iconify-icon {
+    @apply !text-brand;
+  }
+  .btn-outline {
+    @apply relative z-0 inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden border border-white/30 bg-transparent px-6 py-3.5 text-sm font-normal tracking-wider text-white uppercase transition-all hover:border-white/60 hover:bg-white/10;
+  }
+  .btn-outline iconify-icon {
+    @apply !text-white;
+  }
+
+  /* Header Scrolled State */
+  header.header-scrolled {
+    @apply bg-white;
+  }
+  header.header-scrolled .header-border {
+    @apply !border-black/10;
+  }
+  header.header-scrolled nav > a,
+  header.header-scrolled nav > button,
+  header.header-scrolled nav > div > button {
+    @apply hover:!text-dark !text-gray-600;
+  }
+  header.header-scrolled nav > a.active {
+    @apply !text-dark;
+  }
+  header.header-scrolled nav > div > button iconify-icon {
+    @apply !text-gray-600;
+  }
+  header.header-scrolled nav > div > button:hover iconify-icon {
+    @apply !text-dark;
+  }
+  header.header-scrolled .btn-outline {
+    @apply !border-dark/20 !text-dark hover:!border-dark/40 hover:!bg-dark/5;
+  }
+  header.header-scrolled .btn-outline iconify-icon {
+    @apply !text-dark;
+  }
+  header.header-scrolled #mobile-navbar-open {
+    @apply text-dark;
+  }
+  header.header-scrolled #mobile-navbar-open iconify-icon {
+    @apply !text-dark;
+  }
+
+  /* Mobile nav accordion */
+  .mobile-nav-toggle--open .mobile-nav-caret {
+    @apply rotate-180;
+  }
+  .mobile-nav-panel {
+    @apply overflow-hidden transition-[height] duration-300 ease-in-out;
+  }
+
+  /* Parallax: img is 120% tall (10% buffer top+bottom), JS translates within
+     it. No zoom, so subject isn't cropped beyond object-cover. Parent (clipped
+     by overflow-hidden, definite height) is made relative via :has(). */
+  :has(> .parallax) {
+    position: relative;
+  }
+  .parallax {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120% !important;
+    object-fit: cover;
+    will-change: transform;
+  }
+
+  /* Swiper */
+  .slider-hero {
+    contain: layout style;
+  }
+  .slider-hero .swiper {
+    @apply h-full;
+  }
+  .slider-hero .swiper-slide {
+    @apply h-full;
+  }
+  .btn-hero-indicator .swiper-pagination-bullet {
+    @apply !m-0 !h-[3px] !flex-1 !rounded-full !bg-white/20 !opacity-100;
+  }
+  .btn-hero-indicator .swiper-pagination-bullet-active {
+    @apply !bg-white/80;
+  }
+
+  /* Reviews Slider */
+  .slider-reviews {
+    contain: layout style;
+  }
+
+  /* Page Transition Overlay */
+  .page-transition {
+    @apply pointer-events-none fixed inset-0 z-[9999] flex items-center justify-center;
+  }
+  .page-transition__overlay {
+    @apply absolute inset-0 bg-white;
+    transform: translateY(100%);
+  }
+  .page-transition__content {
+    @apply relative z-10 flex flex-col items-center gap-4 opacity-0;
+  }
+  .page-transition__logo {
+    @apply h-12 w-auto xl:h-16;
+  }
+  .page-transition__dots {
+    @apply flex items-center gap-2;
+  }
+  .page-transition__dot {
+    @apply bg-brand size-2 opacity-50;
+  }
+
+  /* Hide content initially when coming from page transition */
+  .page-transition-loading,
+  .page-transition-loading body {
+    @apply invisible overflow-x-hidden overflow-y-hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .page-transition-loading::-webkit-scrollbar,
+  .page-transition-loading body::-webkit-scrollbar {
+    display: none;
+  }
+  .page-transition-loading .page-transition {
+    @apply visible;
+  }
+  .page-transition-loading .page-transition__overlay {
+    transform: translateY(0%);
+  }
+  .page-transition-loading .page-transition__content {
+    @apply opacity-100;
+  }
+
+  /* Page content animation wrapper */
+  .page-content {
+    @apply overflow-hidden opacity-0;
+  }
+  .page-content.revealed,
+  .page-content.no-transition {
+    @apply opacity-100;
+  }
+
+  /* Modal */
+  .modal {
+    @apply pointer-events-none fixed inset-0 z-[70] flex items-center justify-center bg-black/0 p-6 transition-all duration-300;
+  }
+  .modal.active {
+    @apply pointer-events-auto bg-black/70;
+  }
+  .modal__content {
+    @apply relative max-h-[calc(100vh-3rem)] w-full max-w-2xl translate-y-8 scale-95 overflow-y-auto bg-white p-8 opacity-0 transition-all duration-300 xl:p-12;
+  }
+  .modal.active .modal__content {
+    @apply translate-y-0 scale-100 opacity-100;
+  }
+
+  /* Pagination */
+  .btn-paginate {
+    @apply relative z-0 inline-flex min-w-7 cursor-pointer items-center justify-center gap-2 overflow-hidden border border-gray-300 bg-transparent p-2 text-sm text-gray-600 transition-all hover:opacity-80 md:min-w-9 md:p-2.5;
+  }
+  .btn-paginate.active {
+    @apply !border-brand !bg-brand !text-white;
+  }
+
+  /* Accordion Slide */
+  .accordion-slide {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+  .accordion-slide.open {
+    grid-template-rows: 1fr;
+  }
+  .accordion-slide > div {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* Form */
+  .form {
+    @apply relative;
+  }
+  .form label {
+    @apply text-dark mb-1 inline-block text-sm;
+  }
+  .form input[type='text'],
+  .form input[type='email'],
+  .form input[type='tel'],
+  .form input[type='date'],
+  .form select,
+  .form textarea {
+    @apply focus:border-brand text-dark w-full border-b border-gray-200 bg-transparent py-3.5 text-sm transition-all outline-none placeholder:text-gray-400;
+  }
+  .form textarea {
+    @apply max-h-48 min-h-32;
+  }
+}
