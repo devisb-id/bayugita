@@ -36,7 +36,7 @@ $grid = ( '4' === $cols ) ? 'sm:grid-cols-2 xl:grid-cols-4' : 'md:grid-cols-3';
 				<a href="<?php the_permalink(); ?>" class="group flex h-full flex-col">
 					<div class="aspect-[4/3] overflow-hidden">
 						<?php if ( has_post_thumbnail() ) : ?>
-							<?php the_post_thumbnail( 'large', array( 'class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', 'loading' => 'lazy' ) ); ?>
+							<?php the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', 'loading' => 'lazy' ) ); ?>
 						<?php endif; ?>
 					</div>
 					<h3 class="font-playfair mt-6 !text-xl"><?php the_title(); ?></h3>

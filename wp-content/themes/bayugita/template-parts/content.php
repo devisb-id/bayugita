@@ -17,7 +17,7 @@
 	</header>
 
 	<?php if ( has_post_thumbnail() && ! is_singular() ) : ?>
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium_large' ); ?></a>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'full' ); ?></a>
 	<?php endif; ?>
 
 	<div class="entry-content">

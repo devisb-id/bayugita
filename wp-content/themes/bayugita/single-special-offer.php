@@ -17,7 +17,7 @@ while ( have_posts() ) :
 			</div>
 			<?php if ( has_post_thumbnail() ) : ?>
 				<div class="mx-auto mt-10 aspect-[16/9] max-w-5xl overflow-hidden">
-					<?php the_post_thumbnail( 'large', array( 'class' => 'h-full w-full object-cover' ) ); ?>
+					<?php the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover' ) ); ?>
 				</div>
 			<?php endif; ?>
 			<div class="prose-basic mx-auto mt-10 max-w-3xl leading-relaxed">

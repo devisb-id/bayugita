@@ -176,19 +176,12 @@ function bayugita_the_image( $image, $classes = '', $loading = 'lazy' ) {
 	if ( empty( $image ) || empty( $image['url'] ) ) {
 		return;
 	}
-	$src    = esc_url( $image['url'] );
-	$alt    = esc_attr( $image['alt'] ?? '' );
-	$class  = $classes ? ' class="' . esc_attr( $classes ) . '"' : '';
-	$srcset = '';
-	if ( ! empty( $image['ID'] ) ) {
-		$set = wp_get_attachment_image_srcset( $image['ID'] );
-		if ( $set ) {
-			$srcset = ' srcset="' . esc_attr( $set ) . '" sizes="(max-width: 768px) 100vw, 50vw"';
-		}
-	}
+	$src   = esc_url( $image['url'] ); // SCF array 'url' is the full-size file.
+	$alt   = esc_attr( $image['alt'] ?? '' );
+	$class = $classes ? ' class="' . esc_attr( $classes ) . '"' : '';
 	printf(
-		'<img src="%1$s" alt="%2$s"%3$s loading="%4$s"%5$s />',
-		$src, $alt, $class, esc_attr( $loading ), $srcset // phpcs:ignore WordPress.Security.EscapeOutput
+		'<img src="%1$s" alt="%2$s"%3$s loading="%4$s" />',
+		$src, $alt, $class, esc_attr( $loading ) // phpcs:ignore WordPress.Security.EscapeOutput
 	);
 }
 

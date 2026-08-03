@@ -31,7 +31,7 @@ if ( empty( $offers ) ) {
 				<a href="<?php the_permalink(); ?>" class="group flex h-full flex-col">
 					<div class="aspect-[4/3] overflow-hidden">
 						<?php if ( has_post_thumbnail() ) : ?>
-							<?php the_post_thumbnail( 'large', array( 'class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', 'loading' => 'lazy' ) ); ?>
+							<?php the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105', 'loading' => 'lazy' ) ); ?>
 						<?php endif; ?>
 					</div>
 					<div class="mt-6 flex flex-1 flex-col text-center">

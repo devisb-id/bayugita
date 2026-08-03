@@ -36,6 +36,13 @@ function bayugita_setup() {
 add_action( 'after_setup_theme', 'bayugita_setup' );
 
 /**
+ * Serve full-size images everywhere: strip core's responsive srcset/sizes so the
+ * browser always loads the full file rather than a smaller generated variant.
+ */
+add_filter( 'wp_calculate_image_srcset_meta', '__return_empty_array' );
+add_filter( 'wp_img_tag_add_srcset_and_sizes_attr', '__return_false' );
+
+/**
  * Enqueue scripts and styles (mirrors static-file asset set).
  */
 function bayugita_assets() {

@@ -20,7 +20,7 @@
 	</header>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="post-thumbnail"><?php the_post_thumbnail( 'large' ); ?></div>
+		<div class="post-thumbnail"><?php the_post_thumbnail( 'full' ); ?></div>
 	<?php endif; ?>
 
 	<div class="entry-content">
