@@ -47,3 +47,7 @@ error_log
 
 # OS files
 Thumbs.db
+
+# WordPress core directories (not tracked)
+wp-admin/
+wp-includes/
