@@ -12,7 +12,7 @@ wp-config.php
 .env.local
 
 # Uploads (biasanya tidak perlu di-commit)
-/wp-content/uploads/
+
 
 # Plugins (biasanya tidak perlu di-commit)
 /wp-content/plugins/
