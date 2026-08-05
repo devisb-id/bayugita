@@ -15,7 +15,7 @@ wp-config.php
 
 
 # Plugins (biasanya tidak perlu di-commit)
-/wp-content/plugins/
+
 
 # Cache
 /wp-content/cache/
