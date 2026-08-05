@@ -1,0 +1,35 @@
+<!--
+  Contact Form 7 template — Bayu Gita simple contact form.
+
+  HOW TO USE
+  1. WP Admin → Contact → Add New.
+  2. Title it e.g. "Contact Form".
+  3. Replace the Form tab contents with everything BELOW this comment block.
+  4. Save, copy the shortcode, paste it where a contact form is needed.
+  5. Theme's .form styles wrap it automatically — no extra CSS.
+
+  Mail tab: map [your-name] [your-email] [your-phone] [your-message].
+-->
+
+<div class="mb-6">
+  <label>Full Name</label>
+  [text* your-name placeholder "Enter your first name..."]
+</div>
+
+<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+  <div>
+    <label>Email</label>
+    [email* your-email placeholder "Enter your email..."]
+  </div>
+  <div>
+    <label>Phone Number</label>
+    [tel your-phone placeholder "Enter your phone number..."]
+  </div>
+</div>
+
+<div class="mb-6">
+  <label>Message</label>
+  [textarea your-message placeholder "Enter your message..."]
+</div>
+
+[submit class:btn-primary class:group class:cursor-pointer "Send Message"]

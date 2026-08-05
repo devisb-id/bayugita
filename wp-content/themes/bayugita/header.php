@@ -57,13 +57,25 @@ $favicon     = bayugita_option( 'favicon' );
 					</nav>
 
 					<div class="flex flex-wrap items-center justify-center gap-4">
-						<button type="button" data-modal-open="modal-enquiry" class="btn-secondary cursor-pointer">
-							<?php esc_html_e( 'GET IN TOUCH', 'bayugita' ); ?>
-						</button>
-						<a href="<?php echo esc_url( $booking_url ); ?>" class="btn-primary group">
-							<?php esc_html_e( 'BOOK NOW', 'bayugita' ); ?>
-							<iconify-icon icon="ph:arrow-right" class="group-hover:animate-bounce-right"></iconify-icon>
-						</a>
+						<?php
+						$header_buttons = bayugita_option( 'header_buttons', array() );
+						if ( is_array( $header_buttons ) && ! empty( $header_buttons ) ) {
+							foreach ( $header_buttons as $btn ) {
+								$classes = ( 'primary' === ( $btn['style'] ?? 'secondary' ) ) ? 'btn-primary' : 'btn-secondary';
+								bayugita_render_button( $btn, $classes, $btn['icon'] ?? '' );
+							}
+						} else {
+							?>
+							<button type="button" data-modal-open="modal-enquiry" class="btn-secondary cursor-pointer">
+								<?php esc_html_e( 'GET IN TOUCH', 'bayugita' ); ?>
+							</button>
+							<a href="<?php echo esc_url( $booking_url ); ?>" class="btn-primary group">
+								<?php esc_html_e( 'BOOK NOW', 'bayugita' ); ?>
+								<iconify-icon icon="ph:arrow-right" class="group-hover:animate-bounce-right"></iconify-icon>
+							</a>
+							<?php
+						}
+						?>
 					</div>
 
 					<button id="mobile-navbar-open" class="col-start-3 flex size-10 cursor-pointer items-center justify-end justify-self-end text-white xl:hidden">

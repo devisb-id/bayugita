@@ -1,0 +1,94 @@
+Contact Form 7 — Mail tab settings for the Bayu Gita simple contact form.
+Copy each block into the matching field on the form's "Mail" tab.
+
+================================================================
+To:
+================================================================
+info@bayugita.com
+
+================================================================
+From:
+================================================================
+[your-name] <wordpress@yourdomain.com>
+
+(Use a verified address on your own domain here for deliverability;
+put the guest address in Reply-To below, not here.)
+
+================================================================
+Subject:
+================================================================
+New Contact Message from [your-name] — Bayu Gita
+
+================================================================
+Additional headers:
+================================================================
+Reply-To: [your-email]
+
+================================================================
+Message body:  (tick "Use HTML content type" for the styled version)
+================================================================
+
+Plain-text version:
+----------------------------------------------------------------
+New message from the Bayu Gita website contact form.
+
+Full Name: [your-name]
+Email:     [your-email]
+Phone:     [your-phone]
+
+Message:
+[your-message]
+
+Sent from [_site_title] ([_site_url]) on [_date] [_time].
+----------------------------------------------------------------
+
+HTML version:
+----------------------------------------------------------------
+<h2 style="margin:0 0 16px;font-family:Georgia,serif;">New Contact Message — Bayu Gita</h2>
+
+<table cellpadding="4" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">
+  <tr><td><strong>Full Name</strong></td><td>[your-name]</td></tr>
+  <tr><td><strong>Email</strong></td><td>[your-email]</td></tr>
+  <tr><td><strong>Phone</strong></td><td>[your-phone]</td></tr>
+</table>
+
+<h3 style="margin:24px 0 8px;">Message</h3>
+<p style="font-family:Arial,sans-serif;font-size:14px;">[your-message]</p>
+
+<hr>
+<p style="font-family:Arial,sans-serif;font-size:12px;color:#888;">
+  Sent from [_site_title] ([_site_url]) on [_date] [_time].
+</p>
+----------------------------------------------------------------
+
+
+================================================================
+Mail (2) — auto-reply to the sender  (tick "Use Mail (2)")
+================================================================
+
+To:
+[your-email]
+
+From:
+Bayu Gita <wordpress@yourdomain.com>
+
+Subject:
+Thank you for contacting Bayu Gita
+
+Additional headers:
+Reply-To: info@bayugita.com
+
+Message body:
+----------------------------------------------------------------
+Dear [your-name],
+
+Thank you for reaching out to Bayu Gita. We have received your message
+and our team will be in touch shortly.
+
+Your message:
+  [your-message]
+
+Warm regards,
+The Bayu Gita Team
+[_site_url]
+----------------------------------------------------------------

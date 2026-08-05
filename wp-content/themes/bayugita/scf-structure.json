@@ -4859,21 +4859,44 @@
         "title": "Global Site Settings",
         "fields": [
             {
-                "key": "field_gss_logo",
-                "label": "Logo",
-                "name": "logo",
-                "type": "image",
+                "key": "field_gss_tab_branding",
+                "label": "Branding",
+                "name": "",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_gss_logo",
+                "label": "Logo",
+                "name": "logo",
+                "type": "image",
+                "instructions": "Logo utama di header.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
                 "return_format": "array",
                 "preview_size": "medium",
-                "library": "all"
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
                 "key": "field_gss_favicon",
@@ -4882,198 +4905,815 @@
                 "type": "image",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
                 "return_format": "array",
                 "preview_size": "medium",
-                "library": "all"
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
-                "key": "field_gss_partner",
+                "key": "field_gss_partner_logo",
                 "label": "Partner Logo (Luxso)",
                 "name": "partner_logo",
                 "type": "image",
-                "instructions": "",
+                "instructions": "Logo partner di footer.",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
                 "return_format": "array",
                 "preview_size": "medium",
-                "library": "all"
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             },
             {
-                "key": "field_gss_wa",
-                "label": "WhatsApp Number",
-                "name": "whatsapp_number",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": ""
-            },
-            {
-                "key": "field_gss_booking",
-                "label": "Booking URL",
-                "name": "booking_url",
-                "type": "url",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": ""
-            },
-            {
-                "key": "field_gss_addr",
-                "label": "Footer Address",
-                "name": "footer_address",
-                "type": "textarea",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": false,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "rows": 2,
-                "new_lines": "wpautop"
-            },
-            {
-                "key": "field_gss_brand",
+                "key": "field_gss_footer_brand",
                 "label": "Footer Brand Name",
                 "name": "footer_brand",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_gss_tab_contact",
+                "label": "Contact & WhatsApp",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "placement": "top",
+                "endpoint": 0
             },
             {
-                "key": "field_gss_ig",
+                "key": "field_gss_address",
+                "label": "Footer Address",
+                "name": "footer_address",
+                "type": "textarea",
+                "instructions": "Alamat yang ditampilkan di footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "br",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": 3
+            },
+            {
+                "key": "field_gss_wa_number",
+                "label": "Nomor WhatsApp",
+                "name": "whatsapp_number",
+                "type": "text",
+                "instructions": "Format internasional tanpa +, contoh: 6281234567890",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "6281234567890",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_gss_wa_message",
+                "label": "Pesan WhatsApp Default",
+                "name": "whatsapp_message",
+                "type": "text",
+                "instructions": "Teks otomatis saat user klik tombol WhatsApp (opsional).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Halo, saya ingin bertanya mengenai villa...",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_gss_booking_url",
+                "label": "Booking URL",
+                "name": "booking_url",
+                "type": "url",
+                "instructions": "URL tombol Book Now.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://booking.luxsomanagement.com/..."
+            },
+            {
+                "key": "field_gss_show_floating_wa",
+                "label": "Tampilkan Floating WhatsApp Button",
+                "name": "show_floating_wa",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 1,
+                "message": "",
+                "ui": 1,
+                "ui_on_text": "Tampil",
+                "ui_off_text": "Sembunyikan"
+            },
+            {
+                "key": "field_gss_tab_header_btn",
+                "label": "Header Buttons",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_gss_header_buttons",
+                "label": "Tombol Header",
+                "name": "header_buttons",
+                "type": "repeater",
+                "instructions": "Tombol di kanan header. Kosongkan untuk memakai default (GET IN TOUCH + BOOK NOW).",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "min": 0,
+                "max": 0,
+                "rows_per_page": 20,
+                "button_label": "Tambah Tombol",
+                "collapsed": "",
+                "sub_fields": [
+                    {
+                        "key": "field_gss_hb_label",
+                        "label": "Label / Teks",
+                        "name": "button_label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "GET IN TOUCH",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_gss_header_buttons"
+                    },
+                    {
+                        "key": "field_gss_hb_style",
+                        "label": "Style",
+                        "name": "style",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "primary": "Primary",
+                            "secondary": "Secondary"
+                        },
+                        "default_value": "secondary",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "return_format": "value",
+                        "parent_repeater": "field_gss_header_buttons"
+                    },
+                    {
+                        "key": "field_gss_hb_type",
+                        "label": "Tipe Link",
+                        "name": "button_type",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "internal": "Internal Link",
+                            "external": "External Link",
+                            "modal": "Modal Popup (Enquiry)"
+                        },
+                        "default_value": "modal",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "return_format": "value",
+                        "parent_repeater": "field_gss_header_buttons"
+                    },
+                    {
+                        "key": "field_gss_hb_icon",
+                        "label": "Icon (iconify, opsional)",
+                        "name": "icon",
+                        "type": "text",
+                        "instructions": "Contoh: ph:arrow-right. Kosongkan jika tanpa icon.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "ph:arrow-right",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_gss_header_buttons"
+                    },
+                    {
+                        "key": "field_gss_hb_internal",
+                        "label": "Internal Link",
+                        "name": "button_internal_link",
+                        "type": "page_link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_gss_hb_type",
+                                    "operator": "==",
+                                    "value": "internal"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": "",
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "allow_archives": 1,
+                        "multiple": 0,
+                        "parent_repeater": "field_gss_header_buttons"
+                    },
+                    {
+                        "key": "field_gss_hb_external",
+                        "label": "External Link",
+                        "name": "button_external_url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_gss_hb_type",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "https://...",
+                        "parent_repeater": "field_gss_header_buttons"
+                    }
+                ]
+            },
+            {
+                "key": "field_gss_tab_social",
+                "label": "Social Media",
+                "name": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_gss_social_pinterest",
+                "label": "Pinterest URL",
+                "name": "social_pinterest",
+                "type": "url",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://pinterest.com/..."
+            },
+            {
+                "key": "field_gss_social_youtube",
+                "label": "YouTube URL",
+                "name": "social_youtube",
+                "type": "url",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://youtube.com/..."
+            },
+            {
+                "key": "field_gss_social_tiktok",
+                "label": "TikTok URL",
+                "name": "social_tiktok",
+                "type": "url",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://tiktok.com/..."
+            },
+            {
+                "key": "field_gss_social_instagram",
                 "label": "Instagram URL",
                 "name": "social_instagram",
                 "type": "url",
-                "instructions": "",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "default_value": "",
+                "placeholder": "https://instagram.com/..."
             },
             {
-                "key": "field_gss_fb",
+                "key": "field_gss_social_facebook",
                 "label": "Facebook URL",
                 "name": "social_facebook",
                 "type": "url",
-                "instructions": "",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "default_value": "",
+                "placeholder": "https://facebook.com/..."
             },
             {
-                "key": "field_gss_ta",
+                "key": "field_gss_social_tripadvisor",
                 "label": "TripAdvisor URL",
                 "name": "social_tripadvisor",
                 "type": "url",
+                "instructions": "Kosongkan untuk menyembunyikan icon.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://tripadvisor.com/..."
+            },
+            {
+                "key": "field_gss_tab_footer",
+                "label": "Footer Links",
+                "name": "",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "placement": "top",
+                "endpoint": 0
             },
             {
-                "key": "field_gss_terms",
-                "label": "Terms URL",
-                "name": "terms_url",
-                "type": "url",
-                "instructions": "",
+                "key": "field_gss_footer_links",
+                "label": "Link Footer Bawah",
+                "name": "footer_links",
+                "type": "repeater",
+                "instructions": "Link di bottom bar footer (Term & Conditions, Privacy Policy, dsb).",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "layout": "table",
+                "min": 0,
+                "max": 0,
+                "rows_per_page": 20,
+                "button_label": "Tambah Link",
+                "collapsed": "",
+                "sub_fields": [
+                    {
+                        "key": "field_gss_fl_label",
+                        "label": "Teks Link",
+                        "name": "label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "45",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "Term & Conditions",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_gss_footer_links"
+                    },
+                    {
+                        "key": "field_gss_fl_url",
+                        "label": "URL",
+                        "name": "url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "45",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "https://...",
+                        "parent_repeater": "field_gss_footer_links"
+                    },
+                    {
+                        "key": "field_gss_fl_new_tab",
+                        "label": "Tab Baru",
+                        "name": "new_tab",
+                        "type": "true_false",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "10",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": 0,
+                        "message": "",
+                        "ui": 1,
+                        "ui_on_text": "",
+                        "ui_off_text": "",
+                        "parent_repeater": "field_gss_footer_links"
+                    }
+                ]
             },
             {
-                "key": "field_gss_privacy",
-                "label": "Privacy URL",
-                "name": "privacy_url",
-                "type": "url",
-                "instructions": "",
+                "key": "field_gss_press",
+                "label": "Press & Media Link",
+                "name": "footer_press",
+                "type": "group",
+                "instructions": "Baris \"For press and media enquiries...\" di footer.",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_gss_press_text",
+                        "label": "Teks Awal",
+                        "name": "text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "For press and media enquiries please",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_gss_press_label",
+                        "label": "Teks Link",
+                        "name": "label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "contact us here",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_gss_press_type",
+                        "label": "Tipe Link",
+                        "name": "type",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "internal": "Internal Link",
+                            "external": "External Link",
+                            "modal": "Modal Popup (Enquiry)"
+                        },
+                        "default_value": "modal",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "return_format": "value"
+                    },
+                    {
+                        "key": "field_gss_press_modal",
+                        "label": "Modal ID",
+                        "name": "modal_id",
+                        "type": "text",
+                        "instructions": "Contoh: modal-enquiry",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_gss_press_type",
+                                    "operator": "==",
+                                    "value": "modal"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "modal-enquiry",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": ""
+                    },
+                    {
+                        "key": "field_gss_press_internal",
+                        "label": "Internal Link",
+                        "name": "internal_url",
+                        "type": "page_link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_gss_press_type",
+                                    "operator": "==",
+                                    "value": "internal"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": "",
+                        "taxonomy": "",
+                        "allow_null": 0,
+                        "allow_archives": 1,
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_gss_press_external",
+                        "label": "External Link",
+                        "name": "external_url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_gss_press_type",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "https://..."
+                    }
+                ]
             },
             {
-                "key": "field_gss_copy",
+                "key": "field_gss_copyright",
                 "label": "Copyright Text",
                 "name": "copyright_text",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "Copyright © 2026 Bayu Gita",
+                "prepend": "",
+                "append": ""
             },
             {
-                "key": "field_gss_enquiry",
-                "label": "Enquiry Form Shortcode",
-                "name": "enquiry_form_shortcode",
-                "type": "text",
+                "key": "field_gss_tab_modal",
+                "label": "Contact Modal",
+                "name": "",
+                "type": "tab",
                 "instructions": "",
                 "required": 0,
-                "conditional_logic": false,
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
                     "id": ""
                 },
-                "default_value": ""
+                "placement": "top",
+                "endpoint": 0
+            },
+            {
+                "key": "field_gss_modal_title",
+                "label": "Judul Modal Kontak",
+                "name": "modal_contact_title",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Get In Touch With Us",
+                "new_lines": "br",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": 3
+            },
+            {
+                "key": "field_gss_modal_desc",
+                "label": "Deskripsi Modal Kontak",
+                "name": "modal_contact_description",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "We'd love to hear from you. Whether you're planning a visit or have an enquiry about the villa, our team is on hand to assist.",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": 3
+            },
+            {
+                "key": "field_gss_enquiry_shortcode",
+                "label": "CF7 Shortcode",
+                "name": "enquiry_form_shortcode",
+                "type": "text",
+                "instructions": "Paste CF7 shortcode, contoh: [contact-form-7 id=\"abc123\" title=\"Enquiry Form\"]",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "[contact-form-7 id=\"...\" title=\"...\"]",
+                "prepend": "",
+                "append": ""
             }
         ],
         "location": [
@@ -5087,12 +5727,12 @@
         ],
         "menu_order": 0,
         "position": "normal",
-        "style": "default",
+        "style": "seamless",
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
         "active": true,
-        "description": "",
+        "description": "Pengaturan global situs: branding, kontak, header buttons, social media, footer links, dan modal kontak.",
         "show_in_rest": 0
     },
     {
