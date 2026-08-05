@@ -1,5 +1,4 @@
 # WordPress Core
-# wp-admin dan wp-includes TIDAK di-exclude
 /wp-*.php
 /xmlrpc.php
 /index.php
