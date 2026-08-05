@@ -1,12 +1,10 @@
-# WordPress core
-/wp-admin/
-/wp-includes/
+# WordPress Core
+# wp-admin dan wp-includes TIDAK di-exclude
 /wp-*.php
 /xmlrpc.php
 /index.php
 /license.txt
 /readme.html
-!/wp-content/index.php
 
 # Config & environment
 wp-config.php
@@ -15,6 +13,7 @@ wp-config.php
 
 # Uploads (biasanya tidak perlu di-commit)
 /wp-content/uploads/
+
 # Plugins (biasanya tidak perlu di-commit)
 /wp-content/plugins/
 
@@ -25,7 +24,7 @@ wp-config.php
 /wp-content/backups/
 /wp-content/blogs.dir/
 
-# Plugins & themes pihak ketiga (opsional, kalau dikelola via composer/npm)
+# Plugins & themes pihak ketiga
 # /wp-content/plugins/
 # /wp-content/themes/*
 # !/wp-content/themes/nama-tema-custom/
