@@ -28,7 +28,8 @@ function bayugita_heading_tag( $tag ) {
  * @param string $classes CSS classes for the tag.
  */
 function bayugita_the_heading( $text, $tag, $classes = '' ) {
-	$text = trim( (string) $text );
+	// Some heading fields are wpautop textareas, so strip any wrapping <p>.
+	$text = trim( wp_strip_all_tags( (string) $text ) );
 	if ( '' === $text ) {
 		return;
 	}
@@ -149,6 +150,13 @@ function bayugita_render_button( $button, $classes = 'btn-primary', $icon = '' )
 			printf(
 				'<a href="%1$s" download class="%2$s">%3$s</a>',
 				$url, $class, $inner // phpcs:ignore WordPress.Security.EscapeOutput
+			);
+			break;
+
+		case 'modal':
+			printf(
+				'<button type="button" data-modal-open="modal-enquiry" class="%1$s cursor-pointer">%2$s</button>',
+				$class, $inner // phpcs:ignore WordPress.Security.EscapeOutput
 			);
 			break;
 

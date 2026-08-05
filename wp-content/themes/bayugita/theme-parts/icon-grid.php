@@ -13,7 +13,7 @@ if ( empty( $items ) ) {
 }
 $grid = ( '3_columns' === $cols ) ? 'md:grid-cols-2 xl:grid-cols-3' : 'md:grid-cols-2';
 ?>
-<section<?php echo bayugita_section_atts( 'mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'mt-16 md:mt-20 xl:mt-28' ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="delimiter">
 		<?php if ( $heading ) : ?>
 			<div class="text-center">
@@ -31,7 +31,7 @@ $grid = ( '3_columns' === $cols ) ? 'md:grid-cols-2 xl:grid-cols-3' : 'md:grid-c
 					<?php endif; ?>
 					<div>
 						<h3 class="!text-base"><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
-						<p class="mt-2 leading-relaxed"><?php echo esc_html( $item['text'] ?? '' ); ?></p>
+						<div class="mt-2 leading-relaxed"><?php echo wp_kses_post( $item['text'] ?? '' ); ?></div>
 					</div>
 				</div>
 			<?php endforeach; ?>

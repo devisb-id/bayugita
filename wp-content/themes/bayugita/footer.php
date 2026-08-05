@@ -53,15 +53,22 @@ $wa_link      = 'https://wa.me/' . preg_replace( '/[^0-9]/', '', $whatsapp );
 					<div class="flex flex-col items-start md:items-end">
 						<p class="mb-4 text-white"><?php esc_html_e( 'Follow Us', 'bayugita' ); ?></p>
 						<div class="flex items-center gap-3">
-							<a href="<?php echo esc_url( $instagram ); ?>" target="_blank" rel="noopener noreferrer" class="flex size-8 items-center justify-center border border-gray-600 text-white hover:border-gray-400">
-								<iconify-icon icon="ri:instagram-fill" class="!text-white"></iconify-icon>
-							</a>
-							<a href="<?php echo esc_url( $facebook ); ?>" target="_blank" rel="noopener noreferrer" class="flex size-8 items-center justify-center border border-gray-600 text-white hover:border-gray-400">
-								<iconify-icon icon="ri:facebook-fill" class="!text-white"></iconify-icon>
-							</a>
-							<a href="<?php echo esc_url( $tripadvisor ); ?>" target="_blank" rel="noopener noreferrer" class="flex size-8 items-center justify-center border border-gray-600 text-white hover:border-gray-400">
-								<iconify-icon icon="simple-icons:tripadvisor" class="!text-white"></iconify-icon>
-							</a>
+							<?php
+							$socials = array(
+								'ri:instagram-fill'        => $instagram,
+								'ri:facebook-fill'         => $facebook,
+								'simple-icons:tripadvisor' => $tripadvisor,
+							);
+							foreach ( $socials as $icon => $url ) :
+								$url = trim( (string) $url );
+								if ( '' === $url || '#' === $url ) {
+									continue;
+								}
+								?>
+								<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer" class="flex size-8 items-center justify-center border border-gray-600 text-white hover:border-gray-400">
+									<iconify-icon icon="<?php echo esc_attr( $icon ); ?>" class="!text-white"></iconify-icon>
+								</a>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

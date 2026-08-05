@@ -32,7 +32,7 @@ $grid    = ( '3_columns' === $count ) ? 'md:grid-cols-3' : 'md:grid-cols-2';
 						<?php if ( ! empty( $col['title'] ) ) : ?>
 							<h3 class="!text-lg"><?php echo esc_html( $col['title'] ); ?></h3>
 						<?php endif; ?>
-						<div class="mt-3 leading-relaxed"><?php echo wp_kses_post( $col['text'] ?? '' ); ?></div>
+						<div class="prose-basic mt-3 leading-relaxed"><?php echo wp_kses_post( $col['text'] ?? '' ); ?></div>
 					</div>
 				<?php endforeach; ?>
 			</div>

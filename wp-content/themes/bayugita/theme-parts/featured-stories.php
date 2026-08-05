@@ -19,7 +19,7 @@ if ( empty( $posts ) ) {
 }
 $grid = ( '4' === $cols ) ? 'sm:grid-cols-2 xl:grid-cols-4' : 'md:grid-cols-3';
 ?>
-<section<?php echo bayugita_section_atts( 'mt-16 md:mt-20 xl:mt-28' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'py-16 md:py-20 xl:py-28' ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="delimiter">
 		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 			<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>

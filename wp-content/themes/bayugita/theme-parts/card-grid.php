@@ -25,7 +25,7 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 			<div class="text-center">
 				<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>
 				<?php if ( $intro ) : ?>
-					<p class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo esc_html( $intro ); ?></p>
+					<div class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo wp_kses_post( $intro ); ?></div>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
@@ -48,12 +48,12 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 						</div>
 					<?php endif; ?>
 					<div class="mt-6 flex flex-1 flex-col">
+						<h3 class="font-playfair !text-xl"><?php echo esc_html( $card['title'] ?? '' ); ?></h3>
 						<?php if ( ! empty( $card['eyebrow'] ) ) : ?>
-							<p class="text-brand tracking-wider uppercase"><?php echo esc_html( $card['eyebrow'] ); ?></p>
+							<p class="text-brand mt-1 text-sm tracking-wider uppercase"><?php echo esc_html( $card['eyebrow'] ); ?></p>
 						<?php endif; ?>
-						<h3 class="font-playfair mt-1 !text-xl"><?php echo esc_html( $card['title'] ?? '' ); ?></h3>
 						<?php if ( ! empty( $card['text'] ) ) : ?>
-							<p class="mx-auto mt-3 max-w-md leading-relaxed"><?php echo esc_html( $card['text'] ); ?></p>
+							<div class="mx-auto mt-3 max-w-md leading-relaxed"><?php echo wp_kses_post( $card['text'] ); ?></div>
 						<?php endif; ?>
 						<?php if ( ! empty( $card['link_label'] ) ) : ?>
 							<span class="text-brand mt-4 inline-flex items-center justify-center gap-1"><?php echo esc_html( $card['link_label'] ); ?> <iconify-icon icon="ph:arrow-right"></iconify-icon></span>

@@ -14,8 +14,11 @@ $shortcode = bayugita_option( 'enquiry_form_shortcode', '' );
 		<button type="button" data-modal-close class="flex size-9 items-center justify-center border border-gray-200 hover:bg-gray-50">
 			<iconify-icon icon="ph:x"></iconify-icon>
 		</button>
-		<h2 class="mt-4 !text-2xl"><?php esc_html_e( 'Make an Enquiry', 'bayugita' ); ?></h2>
-		<div class="mt-6">
+		<div class="text-center">
+			<h2 class="font-playfair !text-2xl md:!text-3xl"><?php esc_html_e( 'Get In Touch With Us', 'bayugita' ); ?></h2>
+			<p class="mx-auto mt-4 max-w-xl leading-relaxed"><?php esc_html_e( 'We\'d love to hear from you. Whether you\'re planning a visit or have an enquiry about the villa, our team is on hand to assist.', 'bayugita' ); ?></p>
+		</div>
+		<div class="form mt-8">
 			<?php
 			if ( $shortcode ) {
 				echo do_shortcode( $shortcode ); // phpcs:ignore WordPress.Security.EscapeOutput

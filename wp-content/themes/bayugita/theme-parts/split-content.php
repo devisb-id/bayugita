@@ -14,13 +14,18 @@ $buttons   = get_sub_field( 'buttons' );
 
 $reverse = ( 'image_right' === $layout );
 $text_only = ( 'text_only' === $layout );
+// Backgrounded sections need internal padding; transparent ones use top-margin only.
+$has_bg  = '' !== bayugita_bg_class( (string) get_sub_field( 'section_background' ) );
+$spacing = $has_bg
+	? 'mt-16 md:mt-20 py-16 md:py-20 xl:mt-28 xl:py-28'
+	: 'mt-16 md:mt-20 xl:mt-28';
 ?>
-<section<?php echo bayugita_section_atts( 'mt-16 md:mt-20 xl:mt-28' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( $spacing ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="mx-auto w-full max-w-6xl px-6">
 		<?php if ( $text_only ) : ?>
 			<div class="mx-auto max-w-4xl">
 				<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>
-				<div class="mt-6 leading-relaxed"><?php echo wp_kses_post( $body ); ?></div>
+				<div class="prose-basic mt-6 leading-relaxed"><?php echo wp_kses_post( $body ); ?></div>
 			</div>
 		<?php else : ?>
 			<div class="grid grid-cols-1 items-stretch gap-10 md:grid-cols-2 md:gap-12">
@@ -29,7 +34,7 @@ $text_only = ( 'text_only' === $layout );
 				</div>
 				<div class="flex flex-col justify-center py-4 md:py-8">
 					<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>
-					<div class="mt-6 leading-relaxed"><?php echo wp_kses_post( $body ); ?></div>
+					<div class="prose-basic mt-6 leading-relaxed"><?php echo wp_kses_post( $body ); ?></div>
 
 					<?php if ( 'accordion' === $extra && have_rows( 'accordions' ) ) : ?>
 						<div class="mt-8" data-accordion-single>
@@ -54,7 +59,7 @@ $text_only = ( 'text_only' === $layout );
 									</div>
 									<div>
 										<h3 class="!text-base"><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
-										<p class="mt-1 leading-relaxed"><?php echo esc_html( get_sub_field( 'text' ) ); ?></p>
+										<div class="mt-1 leading-relaxed"><?php echo wp_kses_post( get_sub_field( 'text' ) ); ?></div>
 									</div>
 								</div>
 							<?php endwhile; ?>

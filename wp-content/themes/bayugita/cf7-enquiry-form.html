@@ -1,0 +1,75 @@
+<!--
+  Contact Form 7 template — Bayu Gita enquiry form.
+
+  HOW TO USE
+  1. WP Admin → Contact → Add New.
+  2. Title it e.g. "Enquiry Form".
+  3. Replace the Form tab contents with everything BELOW this comment block.
+  4. Save. Copy the generated shortcode, e.g. [contact-form-7 id="123" title="Enquiry Form"].
+  5. Paste that shortcode into:
+       - Site Settings → "Enquiry Form Shortcode"  (powers the popup on every page)
+       - and/or any Contact Form section's "Form Shortcode" field.
+  6. The theme's .form styles wrap it automatically — no extra CSS needed.
+
+  Mail tab: map [your-name] [your-email] [your-phone] [country] [passport-country]
+  [arrival] [departure] [guests] [your-message] into the email body as you like.
+-->
+
+<div class="mb-6">
+  <label>Full Name</label>
+  [text* your-name placeholder "Enter your full name..."]
+</div>
+
+<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+  <div>
+    <label>Email</label>
+    [email* your-email placeholder "Enter your email..."]
+  </div>
+  <div>
+    <label>Phone Number</label>
+    [tel your-phone placeholder "Enter your phone number..."]
+  </div>
+</div>
+
+<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+  <div>
+    <label>Country</label>
+    [select country include_blank "Select your country"]
+  </div>
+  <div>
+    <label>Passport Country</label>
+    [select passport-country include_blank "Select your passport country"]
+  </div>
+</div>
+
+<details class="form-more mb-6">
+  <summary class="text-dark inline-flex cursor-pointer items-center gap-2 underline underline-offset-4">
+    Additional Information
+    <iconify-icon icon="ph:caret-down"></iconify-icon>
+  </summary>
+  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <div>
+      <label>Arrival</label>
+      [date arrival]
+    </div>
+    <div>
+      <label>Departure</label>
+      [date departure]
+    </div>
+    <div>
+      <label>Guests</label>
+      [number guests min:1 placeholder "No. of guests"]
+    </div>
+  </div>
+</details>
+
+<div class="mb-6">
+  <label>Message</label>
+  [textarea your-message placeholder "Enter your request or message..."]
+</div>
+
+<div class="mb-6">
+  [acceptance consent] I have read and accept the <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="/terms-conditions/" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>. [/acceptance]
+</div>
+
+[submit "Send Message"]

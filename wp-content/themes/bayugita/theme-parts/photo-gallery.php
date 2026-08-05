@@ -12,11 +12,11 @@ if ( empty( $images ) ) {
 	return;
 }
 ?>
-<section<?php echo bayugita_section_atts( 'mb-16 md:mb-20 xl:mb-28 pt-36 md:pt-40 xl:pt-48' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'pt-36 md:pt-40 xl:pt-48' ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="delimiter">
 		<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair text-center' ); ?>
 		<?php if ( $intro ) : ?>
-			<p class="mx-auto mt-4 max-w-2xl text-center leading-relaxed"><?php echo esc_html( $intro ); ?></p>
+			<div class="mx-auto mt-4 max-w-2xl text-center leading-relaxed"><?php echo wp_kses_post( $intro ); ?></div>
 		<?php endif; ?>
 		<div id="photo-gallery" class="mt-10 grid grid-cols-2 gap-2 md:mt-12 md:grid-cols-4 md:gap-3">
 			<?php foreach ( $images as $img ) : ?>

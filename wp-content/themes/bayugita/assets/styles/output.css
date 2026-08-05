@@ -2536,3 +2536,52 @@
     }
   }
 }
+
+/* Last section before footer: guarantee breathing room even when the section
+   only carries top-spacing (mt-*). Mirror this in input.css @layer components. */
+@layer components {
+  main > section:last-of-type:not(.section-flush),
+  main > div:last-child:not(.section-flush):not(.modal) {
+    padding-bottom: 4rem;
+  }
+}
+@media (min-width: 48rem) {
+  main > section:last-of-type:not(.section-flush),
+  main > div:last-child:not(.section-flush):not(.modal) {
+    padding-bottom: 5rem;
+  }
+}
+@media (min-width: 80rem) {
+  main > section:last-of-type:not(.section-flush),
+  main > div:last-child:not(.section-flush):not(.modal) {
+    padding-bottom: 7rem;
+  }
+}
+
+/* WYSIWYG body spacing — restore margins the global p{m-0} reset removes.
+   Mirror this in input.css @layer components (.prose-basic). */
+@layer components {
+  .prose-basic > * + * { margin-top: 1rem; }
+  .prose-basic ul { list-style: disc; padding-left: 1.25rem; }
+  .prose-basic ol { list-style: decimal; padding-left: 1.25rem; }
+  .prose-basic li + li { margin-top: 0.25rem; }
+  .prose-basic a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 4px; }
+}
+
+/* Contact Form 7 integration — make CF7 markup adopt the .form look.
+   Mirror this in input.css @layer components. */
+@layer components {
+  .form .wpcf7-form-control-wrap { display: block; width: 100%; }
+  .form select { appearance: none; -webkit-appearance: none; }
+  .form input.wpcf7-submit {
+    display: inline-flex; width: auto; align-items: center; justify-content: center;
+    cursor: pointer; border: 1px solid var(--color-brand); background: var(--color-brand);
+    color: #fff; padding: 0.875rem 1.5rem; font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase; transition: all .3s;
+  }
+  .form input.wpcf7-submit:hover { opacity: .8; }
+  .form .wpcf7-acceptance .wpcf7-list-item { margin: 0; display: flex; align-items: flex-start; gap: 0.75rem; }
+  .form input[type='checkbox'] { margin-top: 0.25rem; width: 1rem; height: 1rem; flex-shrink: 0; cursor: pointer; accent-color: var(--color-brand); }
+  .form .wpcf7-not-valid-tip { margin-top: 0.25rem; display: block; font-size: 0.75rem; color: var(--color-danger); }
+  .form .wpcf7-response-output { margin-top: 1rem; border: 1px solid; padding: 0.75rem 1rem; font-size: 0.875rem; }
+}

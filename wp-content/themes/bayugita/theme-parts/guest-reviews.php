@@ -15,12 +15,12 @@ if ( empty( $reviews ) ) {
 	return;
 }
 ?>
-<section<?php echo bayugita_section_atts( 'mb-16 md:mb-20 xl:mb-28 pt-16 md:pt-20 xl:pt-28 overflow-hidden' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'py-16 md:py-20 xl:py-28 overflow-hidden' ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="delimiter">
 		<div class="text-center">
 			<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>
 			<?php if ( $intro ) : ?>
-				<p class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo esc_html( $intro ); ?></p>
+				<div class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo wp_kses_post( $intro ); ?></div>
 			<?php endif; ?>
 		</div>
 

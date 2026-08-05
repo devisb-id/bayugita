@@ -925,7 +925,8 @@
                                                 "choices": {
                                                     "internal": "Internal Link",
                                                     "external": "External URL",
-                                                    "download": "Download File"
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
                                                 },
                                                 "default_value": "internal",
                                                 "allow_null": 0,
@@ -1789,7 +1790,8 @@
                                                 "choices": {
                                                     "internal": "Internal Link",
                                                     "external": "External URL",
-                                                    "download": "Download File"
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
                                                 },
                                                 "default_value": "internal",
                                                 "allow_null": 0,
@@ -2261,6 +2263,155 @@
                                     }
                                 ],
                                 "collapsed": ""
+                            },
+                            {
+                                "key": "field_fl_btns",
+                                "label": "Buttons",
+                                "name": "buttons",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "block",
+                                "button_label": "Add Button",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_fl_btns_item",
+                                        "label": "Button",
+                                        "name": "button",
+                                        "type": "group",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "layout": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_fl_btns_item_label",
+                                                "label": "Button Label",
+                                                "name": "button_label",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_fl_btns_item_type",
+                                                "label": "Button Type",
+                                                "name": "button_type",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "internal": "Internal Link",
+                                                    "external": "External URL",
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
+                                                },
+                                                "default_value": "internal",
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "return_format": "value"
+                                            },
+                                            {
+                                                "key": "field_fl_btns_item_internal",
+                                                "label": "Internal Link",
+                                                "name": "button_internal_link",
+                                                "type": "page_link",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_fl_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "internal"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "post_type": [],
+                                                "allow_null": 1,
+                                                "multiple": 0
+                                            },
+                                            {
+                                                "key": "field_fl_btns_item_external",
+                                                "label": "External URL",
+                                                "name": "button_external_url",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_fl_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "external"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_fl_btns_item_download",
+                                                "label": "Download File",
+                                                "name": "button_download_file",
+                                                "type": "file",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_fl_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "download"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "collapsed": ""
                             }
                         ],
                         "min": "",
@@ -2634,7 +2785,8 @@
                                         "choices": {
                                             "internal": "Internal Link",
                                             "external": "External URL",
-                                            "download": "Download File"
+                                            "download": "Download File",
+                                            "modal": "Open Enquiry Popup"
                                         },
                                         "default_value": "internal",
                                         "allow_null": 0,
@@ -3240,7 +3392,8 @@
                                                 "choices": {
                                                     "internal": "Internal Link",
                                                     "external": "External URL",
-                                                    "download": "Download File"
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
                                                 },
                                                 "default_value": "internal",
                                                 "allow_null": 0,
@@ -4414,6 +4567,258 @@
                         ],
                         "min": "",
                         "max": ""
+                    },
+                    "layout_button_row": {
+                        "key": "layout_button_row",
+                        "name": "button_row",
+                        "label": "Button Row",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_br_bg",
+                                "label": "Section Background",
+                                "name": "section_background",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "default": "Default (White/Transparent)",
+                                    "white": "White",
+                                    "cream": "Cream (brand-25)",
+                                    "brand": "Brand Light (brand-50)",
+                                    "gray": "Light Gray",
+                                    "dark": "Dark Theme"
+                                },
+                                "default_value": "default",
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 1,
+                                "ajax": 0,
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_br_sid",
+                                "label": "Section ID (anchor)",
+                                "name": "section_id",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": ""
+                            },
+                            {
+                                "key": "field_br_align",
+                                "label": "Alignment",
+                                "name": "alignment",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "left": "Left",
+                                    "center": "Center",
+                                    "right": "Right"
+                                },
+                                "default_value": "center",
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 1,
+                                "ajax": 0,
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_br_btns",
+                                "label": "Buttons",
+                                "name": "buttons",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "block",
+                                "button_label": "Add Button",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_br_btns_item",
+                                        "label": "Button",
+                                        "name": "button",
+                                        "type": "group",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "layout": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_br_btns_item_label",
+                                                "label": "Button Label",
+                                                "name": "button_label",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_br_btns_item_type",
+                                                "label": "Button Type",
+                                                "name": "button_type",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "internal": "Internal Link",
+                                                    "external": "External URL",
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
+                                                },
+                                                "default_value": "internal",
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "return_format": "value"
+                                            },
+                                            {
+                                                "key": "field_br_btns_item_style",
+                                                "label": "Button Style",
+                                                "name": "button_style",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "primary": "Primary",
+                                                    "secondary": "Secondary",
+                                                    "outline": "Outline (on dark)"
+                                                },
+                                                "default_value": "primary",
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "return_format": "value"
+                                            },
+                                            {
+                                                "key": "field_br_btns_item_internal",
+                                                "label": "Internal Link",
+                                                "name": "button_internal_link",
+                                                "type": "page_link",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_br_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "internal"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "post_type": [],
+                                                "allow_null": 1,
+                                                "multiple": 0
+                                            },
+                                            {
+                                                "key": "field_br_btns_item_external",
+                                                "label": "External URL",
+                                                "name": "button_external_url",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_br_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "external"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_br_btns_item_download",
+                                                "label": "Download File",
+                                                "name": "button_download_file",
+                                                "type": "file",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_br_btns_item_type",
+                                                            "operator": "==",
+                                                            "value": "download"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "library": "all"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "collapsed": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
                     }
                 },
                 "button_label": "Add Section",
@@ -4689,5 +5094,223 @@
         "active": true,
         "description": "",
         "show_in_rest": 0
+    },
+    {
+        "key": "group_special_offer",
+        "title": "Special Offer Details",
+        "fields": [
+            {
+                "key": "field_so_description",
+                "label": "Description",
+                "name": "offer_description",
+                "type": "textarea",
+                "instructions": "Intro paragraph shown at the top of the popup.",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "wpautop",
+                "rows": 4
+            },
+            {
+                "key": "field_so_benefits",
+                "label": "Benefits",
+                "name": "offer_benefits",
+                "type": "repeater",
+                "instructions": "Checklist items with a check icon.",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "table",
+                "button_label": "Add Benefit",
+                "sub_fields": [
+                    {
+                        "key": "field_so_benefits_text",
+                        "label": "Benefit",
+                        "name": "text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_so_terms",
+                "label": "Terms Note",
+                "name": "offer_terms",
+                "type": "text",
+                "instructions": "Small italic note under the list, e.g. \"Applicable for stays of 5 nights or more.\"",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            },
+            {
+                "key": "field_so_book",
+                "label": "Book Now Button",
+                "name": "offer_book_button",
+                "type": "group",
+                "instructions": "Leave label blank to use the global Book Now link.",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_so_book_label",
+                        "label": "Button Label",
+                        "name": "button_label",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
+                    },
+                    {
+                        "key": "field_so_book_type",
+                        "label": "Button Type",
+                        "name": "button_type",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "internal": "Internal Link",
+                            "external": "External URL",
+                            "download": "Download File",
+                            "modal": "Open Enquiry Popup"
+                        },
+                        "default_value": "internal",
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 1,
+                        "ajax": 0,
+                        "return_format": "value"
+                    },
+                    {
+                        "key": "field_so_book_internal",
+                        "label": "Internal Link",
+                        "name": "button_internal_link",
+                        "type": "page_link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_so_book_type",
+                                    "operator": "==",
+                                    "value": "internal"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [],
+                        "allow_null": 1,
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_so_book_external",
+                        "label": "External URL",
+                        "name": "button_external_url",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_so_book_type",
+                                    "operator": "==",
+                                    "value": "external"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
+                    },
+                    {
+                        "key": "field_so_book_download",
+                        "label": "Download File",
+                        "name": "button_download_file",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_so_book_type",
+                                    "operator": "==",
+                                    "value": "download"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "special-offer"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
     }
 ]

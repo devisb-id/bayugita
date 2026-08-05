@@ -23,7 +23,7 @@ $discounts  = get_sub_field( 'discounts' );
 $inclusions = get_sub_field( 'inclusions_list' );
 $terms      = get_sub_field( 'terms_content' );
 ?>
-<section<?php echo bayugita_section_atts( 'mb-16 md:mb-20 xl:mb-28 pt-36 md:pt-40 xl:pt-48' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'pt-36 md:pt-40 xl:pt-48' ); // phpcs:ignore ?> data-aos="fade-up">
 	<div class="delimiter">
 		<div class="text-center">
 			<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>

@@ -10,7 +10,7 @@ $eyebrow = get_sub_field( 'eyebrow' );
 $intro   = get_sub_field( 'intro' );
 $embed   = get_sub_field( 'map_embed_code' );
 ?>
-<section<?php echo bayugita_section_atts( 'mt-16 mb-16 md:mt-20 md:mb-20 xl:mt-28 xl:mb-28' ); // phpcs:ignore ?> data-aos="fade-up">
+<section<?php echo bayugita_section_atts( 'section-flush mt-16 md:mt-20 xl:mt-28' ); // phpcs:ignore ?> data-aos="fade-up">
 	<?php if ( $heading || $intro ) : ?>
 		<div class="delimiter">
 			<div class="mx-auto max-w-3xl text-center">
@@ -19,7 +19,7 @@ $embed   = get_sub_field( 'map_embed_code' );
 					<p class="text-brand mt-4 tracking-wider uppercase"><?php echo esc_html( $eyebrow ); ?></p>
 				<?php endif; ?>
 				<?php if ( $intro ) : ?>
-					<p class="mt-4 leading-relaxed"><?php echo esc_html( $intro ); ?></p>
+					<div class="mt-4 leading-relaxed"><?php echo wp_kses_post( $intro ); ?></div>
 				<?php endif; ?>
 			</div>
 		</div>

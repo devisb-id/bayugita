@@ -29,7 +29,7 @@ $grid_class = $cols_map[ $cols ] ?? $cols_map['2'];
 			<div class="text-center">
 				<?php bayugita_the_heading( $heading, get_sub_field( 'heading_tag' ), 'font-playfair' ); ?>
 				<?php if ( $subtitle ) : ?>
-					<p class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo esc_html( $subtitle ); ?></p>
+					<div class="mx-auto mt-4 max-w-2xl leading-relaxed"><?php echo wp_kses_post( $subtitle ); ?></div>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
@@ -47,5 +47,12 @@ $grid_class = $cols_map[ $cols ] ?? $cols_map['2'];
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+		<?php $buttons = get_sub_field( 'buttons' ); ?>
+		<?php if ( $buttons ) : ?>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-12">
+				<?php foreach ( $buttons as $b ) { bayugita_render_button( $b['button'] ?? $b, 'btn-secondary', 'ph:file-pdf' ); } ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
