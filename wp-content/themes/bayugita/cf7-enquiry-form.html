@@ -12,64 +12,93 @@
   6. The theme's .form styles wrap it automatically — no extra CSS needed.
 
   Mail tab: map [your-name] [your-email] [your-phone] [country] [passport-country]
-  [arrival] [departure] [guests] [your-message] into the email body as you like.
+  [arrival-date] [departure-date] [dates-flexible] [function-intended]
+  [adult] [children] [infants] [your-message] into the email body as you like.
 -->
 
-<div class="mb-6">
+<!-- Full Name -->
+<div>
   <label>Full Name</label>
-  [text* your-name placeholder "Enter your full name..."]
+  [text* your-name id:enquiry-name placeholder "Enter your full name..."]
 </div>
 
-<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+<!-- Email + Phone -->
+<div class="grid gap-6 md:grid-cols-2">
   <div>
     <label>Email</label>
-    [email* your-email placeholder "Enter your email..."]
+    [email* your-email id:enquiry-email placeholder "Enter your email..."]
   </div>
   <div>
     <label>Phone Number</label>
-    [tel your-phone placeholder "Enter your phone number..."]
+    [tel your-phone id:enquiry-phone placeholder "Enter your phone number..."]
   </div>
 </div>
 
-<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+<!-- Country + Passport Country -->
+<div class="grid gap-6 md:grid-cols-2">
   <div>
     <label>Country</label>
-    [select country include_blank "Select your country"]
+    [select country id:enquiry-country first_as_label "Select your country" "Afghanistan" "Albania" "Algeria" "Andorra" "Angola" "Argentina" "Armenia" "Australia" "Austria" "Azerbaijan" "Bahamas" "Bahrain" "Bangladesh" "Barbados" "Belarus" "Belgium" "Belize" "Benin" "Bhutan" "Bolivia" "Bosnia and Herzegovina" "Botswana" "Brazil" "Brunei" "Bulgaria" "Burkina Faso" "Burundi" "Cambodia" "Cameroon" "Canada" "Chile" "China" "Colombia" "Costa Rica" "Croatia" "Cuba" "Cyprus" "Czech Republic" "Denmark" "Dominican Republic" "Ecuador" "Egypt" "El Salvador" "Estonia" "Ethiopia" "Fiji" "Finland" "France" "Georgia" "Germany" "Ghana" "Greece" "Guatemala" "Honduras" "Hong Kong" "Hungary" "Iceland" "India" "Indonesia" "Iran" "Iraq" "Ireland" "Israel" "Italy" "Jamaica" "Japan" "Jordan" "Kazakhstan" "Kenya" "Kuwait" "Laos" "Latvia" "Lebanon" "Libya" "Liechtenstein" "Lithuania" "Luxembourg" "Macau" "Madagascar" "Malaysia" "Maldives" "Malta" "Mauritius" "Mexico" "Monaco" "Mongolia" "Montenegro" "Morocco" "Myanmar" "Nepal" "Netherlands" "New Zealand" "Nicaragua" "Nigeria" "North Macedonia" "Norway" "Oman" "Pakistan" "Panama" "Papua New Guinea" "Paraguay" "Peru" "Philippines" "Poland" "Portugal" "Qatar" "Romania" "Russia" "Rwanda" "Saudi Arabia" "Senegal" "Serbia" "Seychelles" "Singapore" "Slovakia" "Slovenia" "South Africa" "South Korea" "Spain" "Sri Lanka" "Sweden" "Switzerland" "Taiwan" "Tanzania" "Thailand" "Tunisia" "Turkey" "Uganda" "Ukraine" "United Arab Emirates" "United Kingdom" "United States" "Uruguay" "Uzbekistan" "Venezuela" "Vietnam" "Yemen" "Zambia" "Zimbabwe"]
   </div>
   <div>
     <label>Passport Country</label>
-    [select passport-country include_blank "Select your passport country"]
+    [select passport-country id:enquiry-passport first_as_label "Select your passport country" "Afghanistan" "Albania" "Algeria" "Andorra" "Angola" "Argentina" "Armenia" "Australia" "Austria" "Azerbaijan" "Bahamas" "Bahrain" "Bangladesh" "Barbados" "Belarus" "Belgium" "Belize" "Benin" "Bhutan" "Bolivia" "Bosnia and Herzegovina" "Botswana" "Brazil" "Brunei" "Bulgaria" "Burkina Faso" "Burundi" "Cambodia" "Cameroon" "Canada" "Chile" "China" "Colombia" "Costa Rica" "Croatia" "Cuba" "Cyprus" "Czech Republic" "Denmark" "Dominican Republic" "Ecuador" "Egypt" "El Salvador" "Estonia" "Ethiopia" "Fiji" "Finland" "France" "Georgia" "Germany" "Ghana" "Greece" "Guatemala" "Honduras" "Hong Kong" "Hungary" "Iceland" "India" "Indonesia" "Iran" "Iraq" "Ireland" "Israel" "Italy" "Jamaica" "Japan" "Jordan" "Kazakhstan" "Kenya" "Kuwait" "Laos" "Latvia" "Lebanon" "Libya" "Liechtenstein" "Lithuania" "Luxembourg" "Macau" "Madagascar" "Malaysia" "Maldives" "Malta" "Mauritius" "Mexico" "Monaco" "Mongolia" "Montenegro" "Morocco" "Myanmar" "Nepal" "Netherlands" "New Zealand" "Nicaragua" "Nigeria" "North Macedonia" "Norway" "Oman" "Pakistan" "Panama" "Papua New Guinea" "Paraguay" "Peru" "Philippines" "Poland" "Portugal" "Qatar" "Romania" "Russia" "Rwanda" "Saudi Arabia" "Senegal" "Serbia" "Seychelles" "Singapore" "Slovakia" "Slovenia" "South Africa" "South Korea" "Spain" "Sri Lanka" "Sweden" "Switzerland" "Taiwan" "Tanzania" "Thailand" "Tunisia" "Turkey" "Uganda" "Ukraine" "United Arab Emirates" "United Kingdom" "United States" "Uruguay" "Uzbekistan" "Venezuela" "Vietnam" "Yemen" "Zambia" "Zimbabwe"]
   </div>
 </div>
 
-<details class="form-more mb-6">
-  <summary class="text-dark inline-flex cursor-pointer items-center gap-2 underline underline-offset-4">
-    Additional Information
-    <iconify-icon icon="ph:caret-down"></iconify-icon>
-  </summary>
-  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
-    <div>
-      <label>Arrival</label>
-      [date arrival]
-    </div>
-    <div>
-      <label>Departure</label>
-      [date departure]
-    </div>
-    <div>
-      <label>Guests</label>
-      [number guests min:1 placeholder "No. of guests"]
+<!-- Additional Information (toggle) -->
+<div class="accordion-item">
+  <button type="button" class="accordion-trigger flex w-full cursor-pointer items-center gap-2 text-left">
+    <span class="text-dark text-sm underline">Additional Information</span>
+    <iconify-icon icon="ph:caret-down" class="!text-dark text-base transition-transform"></iconify-icon>
+  </button>
+
+  <div class="accordion-slide">
+    <div class="pt-6">
+      <!-- Dates -->
+      <div class="grid gap-6 md:grid-cols-2">
+        <div>
+          <label>Arrival Date</label>
+          [date arrival-date id:enquiry-arrival]
+        </div>
+        <div>
+          <label>Departure Date</label>
+          [date departure-date id:enquiry-departure]
+        </div>
+      </div>
+
+      <!-- Flexible / function -->
+      <div class="mt-6 space-y-3">
+        [checkbox dates-flexible use_label_element "Dates are flexible?"]
+        [checkbox function-intended use_label_element "Do you intend to hold a function (wedding, special party, etc) during your stay?"]
+      </div>
+
+      <!-- Guests -->
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <div>
+          <label>Adult</label>
+          [select adult id:enquiry-adult first_as_label "Select adult" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20"]
+        </div>
+        <div>
+          <label>Children</label>
+          [select children id:enquiry-children first_as_label "Select children" "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20"]
+        </div>
+        <div>
+          <label>Infants</label>
+          [select infants id:enquiry-infants first_as_label "Select infants" "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20"]
+        </div>
+      </div>
     </div>
   </div>
-</details>
+</div>
 
-<div class="mb-6">
+<!-- Message -->
+<div>
   <label>Message</label>
-  [textarea your-message placeholder "Enter your request or message..."]
+  [textarea your-message id:enquiry-message placeholder "Enter your request or message..."]
 </div>
 
-<div class="mb-6">
-  [acceptance consent] I have read and accept the <a href="/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and <a href="/terms-conditions/" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>. [/acceptance]
-</div>
+<!-- Consent -->
+[acceptance consent] I have read and accept the <a href="https://luxsomanagement.com/privacy-policy/" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline">Privacy Policy</a> and <a href="https://luxsomanagement.com/terms-conditions/" target="_blank" rel="noopener noreferrer" class="text-brand hover:underline">Terms and Conditions</a>. [/acceptance]
 
 [submit "Send Message"]

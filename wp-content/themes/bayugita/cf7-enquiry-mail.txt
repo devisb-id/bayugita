@@ -1,0 +1,126 @@
+Contact Form 7 — Mail tab settings for the Bayu Gita enquiry form.
+Copy each block into the matching field on the form's "Mail" tab.
+
+================================================================
+To:
+================================================================
+reservations@bayugita.com
+
+================================================================
+From:
+================================================================
+[your-name] <wordpress@yourdomain.com>
+
+(Use your own verified domain address for deliverability; put the
+guest address in Reply-To below, not here.)
+
+================================================================
+Subject:
+================================================================
+New Enquiry from [your-name] — Bayu Gita
+
+================================================================
+Additional headers:
+================================================================
+Reply-To: [your-email]
+
+================================================================
+Message body:  (tick "Use HTML content type" for the styled version)
+================================================================
+
+Plain-text version:
+----------------------------------------------------------------
+New enquiry received from the Bayu Gita website.
+
+CONTACT
+Full Name:        [your-name]
+Email:            [your-email]
+Phone:            [your-phone]
+Country:          [country]
+Passport Country: [passport-country]
+
+STAY DETAILS
+Arrival:          [arrival-date]
+Departure:        [departure-date]
+Dates flexible:   [dates-flexible]
+Function planned: [function-intended]
+Adults:           [adult]
+Children:         [children]
+Infants:          [infants]
+
+MESSAGE
+[your-message]
+
+Consent accepted: [consent]
+Sent from [_site_title] ([_site_url]) on [_date] [_time].
+----------------------------------------------------------------
+
+HTML version:
+----------------------------------------------------------------
+<h2 style="margin:0 0 16px;font-family:Georgia,serif;">New Enquiry — Bayu Gita</h2>
+
+<h3 style="margin:24px 0 8px;">Contact</h3>
+<table cellpadding="4" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">
+  <tr><td><strong>Full Name</strong></td><td>[your-name]</td></tr>
+  <tr><td><strong>Email</strong></td><td>[your-email]</td></tr>
+  <tr><td><strong>Phone</strong></td><td>[your-phone]</td></tr>
+  <tr><td><strong>Country</strong></td><td>[country]</td></tr>
+  <tr><td><strong>Passport Country</strong></td><td>[passport-country]</td></tr>
+</table>
+
+<h3 style="margin:24px 0 8px;">Stay Details</h3>
+<table cellpadding="4" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">
+  <tr><td><strong>Arrival</strong></td><td>[arrival-date]</td></tr>
+  <tr><td><strong>Departure</strong></td><td>[departure-date]</td></tr>
+  <tr><td><strong>Dates flexible</strong></td><td>[dates-flexible]</td></tr>
+  <tr><td><strong>Function planned</strong></td><td>[function-intended]</td></tr>
+  <tr><td><strong>Adults</strong></td><td>[adult]</td></tr>
+  <tr><td><strong>Children</strong></td><td>[children]</td></tr>
+  <tr><td><strong>Infants</strong></td><td>[infants]</td></tr>
+</table>
+
+<h3 style="margin:24px 0 8px;">Message</h3>
+<p style="font-family:Arial,sans-serif;font-size:14px;">[your-message]</p>
+
+<hr>
+<p style="font-family:Arial,sans-serif;font-size:12px;color:#888;">
+  Consent accepted: [consent]<br>
+  Sent from [_site_title] ([_site_url]) on [_date] [_time].
+</p>
+----------------------------------------------------------------
+
+
+================================================================
+Mail (2) — auto-reply to the guest  (tick "Use Mail (2)")
+================================================================
+
+To:
+[your-email]
+
+From:
+Bayu Gita <wordpress@yourdomain.com>
+
+Subject:
+Thank you for your enquiry — Bayu Gita
+
+Additional headers:
+Reply-To: reservations@bayugita.com
+
+Message body:
+----------------------------------------------------------------
+Dear [your-name],
+
+Thank you for reaching out to Bayu Gita. We have received your enquiry
+and our team will be in touch shortly.
+
+Summary of your request:
+  Arrival:    [arrival-date]
+  Departure:  [departure-date]
+  Guests:     [adult] adult(s), [children] child(ren), [infants] infant(s)
+
+  [your-message]
+
+Warm regards,
+The Bayu Gita Team
+[_site_url]
+----------------------------------------------------------------
