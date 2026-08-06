@@ -146,57 +146,112 @@ function bayugita_options_page() {
 add_action( 'acf/init', 'bayugita_options_page' );
 
 /**
- * Move WP Admin Bar to the bottom of the page
- *
- * When a user is logged in, WordPress adds a black admin toolbar at the top
- * of the page which pushes down the site content and overlaps the fixed header.
- * This function repositions it to the bottom of the viewport instead,
- * so the site layout and hero sections remain unaffected.
+ * Hide WP Admin Bar by default at bottom & toggle via floating icon (bottom-left)
  */
-function vnt_admin_bar_to_bottom()
+function vnt_toggle_admin_bar_bottom()
 {
     if (!is_admin_bar_showing()) {
         return;
     }
     ?>
+    <!-- Tombol Trigger di Pojok Kiri Bawah -->
+    <button id="vnt-adminbar-trigger" title="Toggle WP Admin Bar" aria-label="Toggle WP Admin Bar">
+        <span class="dashicons dashicons-wordpress"></span>
+        <span class="vnt-arrow">▲</span>
+    </button>
+
     <style>
-        /* Remove default top offset and add bottom padding to prevent footer cutoff */
-        html,
-        html.wp-toolbar {
+        /* 1. Hilangkan ruang kosong atas bawaan WP */
+        html, html.wp-toolbar {
             padding-top: 0 !important;
-            padding-bottom: 32px !important;
         }
 
-        /* Adjust padding for mobile view (Admin Bar is taller on mobile) */
-        @media screen and (max-width: 782px) {
-            html,
-            html.wp-toolbar {
-                padding-bottom: 46px !important;
-            }
-        }
-
-        /* Reposition admin bar to bottom */
+        /* 2. Sembunyikan Admin Bar di bawah layar secara default */
         #wpadminbar {
             top: auto !important;
             bottom: 0 !important;
             position: fixed !important;
+            transform: translateY(100%) !important; /* Tersembunyi ke bawah */
+            transition: transform 0.3s ease-in-out !important;
+            z-index: 99998 !important;
         }
 
-        /* Flip any dropdown menus so they open upward */
+        /* 3. Kelas untuk memunculkan Admin Bar */
+        #wpadminbar.vnt-show {
+            transform: translateY(0) !important;
+        }
+
+        /* Submenu dropdown terbuka ke atas */
         #wpadminbar .ab-sub-wrapper {
             top: auto !important;
             bottom: 100% !important;
         }
 
-        /* Keep hover/active colors intact */
-        #wpadminbar .ab-top-menu>li>.ab-item:focus,
-        #wpadminbar .ab-top-menu>li:hover>.ab-item {
-            background: #23282d;
+        /* 4. Styling Tombol Icon di Kiri Bawah */
+        #vnt-adminbar-trigger {
+            position: fixed;
+            bottom: 0;
+            left: 15px;
+            z-index: 99999;
+            background: #1d2327;
+            color: #fff;
+            border: 1px solid #3c434a;
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            padding: 6px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            transition: bottom 0.3s ease-in-out, background 0.2s;
+        }
+
+        #vnt-adminbar-trigger:hover {
+            background: #2271b1; /* Warna biru WordPress saat di-hover */
+            color: #fff;
+        }
+
+        /* Naikkan tombol saat Admin Bar muncul */
+        #vnt-adminbar-trigger.vnt-active {
+            bottom: 32px;
+        }
+
+        @media screen and (max-width: 782px) {
+            #vnt-adminbar-trigger.vnt-active {
+                bottom: 46px;
+            }
+        }
+
+        /* Animasi rotasi panah */
+        #vnt-adminbar-trigger .vnt-arrow {
+            display: inline-block;
+            font-size: 9px;
+            transition: transform 0.3s ease;
+        }
+
+        #vnt-adminbar-trigger.vnt-active .vnt-arrow {
+            transform: rotate(180deg);
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('vnt-adminbar-trigger');
+            var bar = document.getElementById('wpadminbar');
+
+            if (btn && bar) {
+                btn.addEventListener('click', function() {
+                    bar.classList.toggle('vnt-show');
+                    btn.classList.toggle('vnt-active');
+                });
+            }
+        });
+    </script>
     <?php
 }
-add_action('wp_head', 'vnt_admin_bar_to_bottom', 99);
+add_action('wp_footer', 'vnt_toggle_admin_bar_bottom', 99);
 
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/class-bayugita-nav-walker.php';
