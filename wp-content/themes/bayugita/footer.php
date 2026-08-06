@@ -23,7 +23,7 @@ $footer_links = bayugita_option( 'footer_links', array() );
 $press        = bayugita_option( 'footer_press', array() );
 $copyright   = bayugita_option( 'copyright_text', 'Copyright © ' . gmdate( 'Y' ) . ' Bayu Gita' );
 $location_url = function_exists( 'get_permalink' ) ? get_permalink( get_page_by_path( 'location' ) ) : home_url( '/location/' );
-$contact_url  = get_permalink( get_page_by_path( 'contact-us' ) );
+$contact_url  = bayugita_option( 'enquiry_url' ) ?: get_permalink( get_page_by_path( 'contact-us' ) );
 $wa_message   = bayugita_option( 'whatsapp_message', '' );
 $wa_link      = 'https://wa.me/' . preg_replace( '/[^0-9]/', '', $whatsapp );
 if ( $wa_message ) {

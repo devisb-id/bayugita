@@ -5047,12 +5047,28 @@
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "50",
                     "class": "",
                     "id": ""
                 },
                 "default_value": "",
                 "placeholder": "https://booking.luxsomanagement.com/..."
+            },
+            {
+                "key": "field_gss_enquiry_url",
+                "label": "Enquiry URL",
+                "name": "enquiry_url",
+                "type": "url",
+                "instructions": "URL tombol Enquire Now di footer.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "https://.../contact-us"
             },
             {
                 "key": "field_gss_show_floating_wa",
