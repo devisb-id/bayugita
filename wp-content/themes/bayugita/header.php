@@ -10,8 +10,9 @@ $logo_url = is_array( $logo ) ? ( $logo['url'] ?? '' ) : '';
 if ( ! $logo_url ) {
 	$logo_url = get_template_directory_uri() . '/assets/images/logo.webp';
 }
-$booking_url = bayugita_option( 'booking_url', 'https://booking.luxsomanagement.com/?ownerid=156681&propid=337373' );
-$favicon     = bayugita_option( 'favicon' );
+$favicon        = bayugita_option( 'favicon' );
+$header_buttons = bayugita_option( 'header_buttons', array() );
+$header_buttons = is_array( $header_buttons ) ? $header_buttons : array();
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -56,24 +57,11 @@ $favicon     = bayugita_option( 'favicon' );
 						?>
 					</nav>
 
-					<div class="flex flex-wrap items-center justify-center gap-4">
+					<div class="hidden flex-wrap items-center justify-center gap-4 xl:flex">
 						<?php
-						$header_buttons = bayugita_option( 'header_buttons', array() );
-						if ( is_array( $header_buttons ) && ! empty( $header_buttons ) ) {
-							foreach ( $header_buttons as $btn ) {
-								$classes = ( 'primary' === ( $btn['style'] ?? 'secondary' ) ) ? 'btn-primary' : 'btn-secondary';
-								bayugita_render_button( $btn, $classes, $btn['icon'] ?? '' );
-							}
-						} else {
-							?>
-							<button type="button" data-modal-open="modal-enquiry" class="btn-secondary cursor-pointer">
-								<?php esc_html_e( 'GET IN TOUCH', 'bayugita' ); ?>
-							</button>
-							<a href="<?php echo esc_url( $booking_url ); ?>" class="btn-primary group">
-								<?php esc_html_e( 'BOOK NOW', 'bayugita' ); ?>
-								<iconify-icon icon="ph:arrow-right" class="group-hover:animate-bounce-right"></iconify-icon>
-							</a>
-							<?php
+						foreach ( $header_buttons as $btn ) {
+							$classes = ( 'primary' === ( $btn['style'] ?? 'secondary' ) ) ? 'btn-primary' : 'btn-secondary';
+							bayugita_render_button( $btn, $classes, $btn['icon'] ?? '' );
 						}
 						?>
 					</div>
@@ -101,20 +89,22 @@ $favicon     = bayugita_option( 'favicon' );
 					array(
 						'theme_location' => 'primary',
 						'container'      => false,
-						'menu_class'     => '',
 						'items_wrap'     => '%3$s',
 						'depth'          => 2,
+						'walker'         => new Bayugita_Mobile_Nav_Walker(),
 						'fallback_cb'    => false,
-						'link_before'    => '',
 					)
 				);
 				?>
 			</nav>
 			<div id="mobile-navbar-divider" class="divider my-6"></div>
-			<div id="mobile-navbar-auth">
-				<a href="<?php echo esc_url( $booking_url ); ?>" target="_blank" rel="noopener noreferrer" class="btn-primary w-full">
-					<?php esc_html_e( 'Book Now', 'bayugita' ); ?>
-				</a>
+			<div id="mobile-navbar-auth" class="flex flex-col gap-3">
+				<?php
+				foreach ( $header_buttons as $btn ) {
+					$classes = ( 'primary' === ( $btn['style'] ?? 'secondary' ) ) ? 'btn-primary' : 'btn-secondary';
+					bayugita_render_button( $btn, $classes . ' w-full', $btn['icon'] ?? '' );
+				}
+				?>
 			</div>
 		</div>
 	</div>

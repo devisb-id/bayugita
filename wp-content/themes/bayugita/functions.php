@@ -147,3 +147,4 @@ add_action( 'acf/init', 'bayugita_options_page' );
 
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/class-bayugita-nav-walker.php';
+require get_template_directory() . '/inc/class-bayugita-mobile-nav-walker.php';
