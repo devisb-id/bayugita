@@ -145,6 +145,59 @@ function bayugita_options_page() {
 }
 add_action( 'acf/init', 'bayugita_options_page' );
 
+/**
+ * Move WP Admin Bar to the bottom of the page
+ *
+ * When a user is logged in, WordPress adds a black admin toolbar at the top
+ * of the page which pushes down the site content and overlaps the fixed header.
+ * This function repositions it to the bottom of the viewport instead,
+ * so the site layout and hero sections remain unaffected.
+ */
+function vnt_admin_bar_to_bottom()
+{
+    if (!is_admin_bar_showing()) {
+        return;
+    }
+    ?>
+    <style>
+        /* Remove default top offset and add bottom padding to prevent footer cutoff */
+        html,
+        html.wp-toolbar {
+            padding-top: 0 !important;
+            padding-bottom: 32px !important;
+        }
+
+        /* Adjust padding for mobile view (Admin Bar is taller on mobile) */
+        @media screen and (max-width: 782px) {
+            html,
+            html.wp-toolbar {
+                padding-bottom: 46px !important;
+            }
+        }
+
+        /* Reposition admin bar to bottom */
+        #wpadminbar {
+            top: auto !important;
+            bottom: 0 !important;
+            position: fixed !important;
+        }
+
+        /* Flip any dropdown menus so they open upward */
+        #wpadminbar .ab-sub-wrapper {
+            top: auto !important;
+            bottom: 100% !important;
+        }
+
+        /* Keep hover/active colors intact */
+        #wpadminbar .ab-top-menu>li>.ab-item:focus,
+        #wpadminbar .ab-top-menu>li:hover>.ab-item {
+            background: #23282d;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'vnt_admin_bar_to_bottom', 99);
+
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/class-bayugita-nav-walker.php';
 require get_template_directory() . '/inc/class-bayugita-mobile-nav-walker.php';
