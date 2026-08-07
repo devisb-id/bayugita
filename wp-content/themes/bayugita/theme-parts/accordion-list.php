@@ -25,14 +25,30 @@ $grid = ( '2' === $cols ) ? 'md:grid-cols-2' : '';
 			</div>
 		<?php endif; ?>
 
-		<div class="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-x-12 <?php echo esc_attr( $grid ); ?>" data-accordion-single>
-			<?php foreach ( $items as $item ) : ?>
-				<div class="accordion-item mb-4 border-b border-gray-200 pb-4">
-					<div class="accordion-trigger flex cursor-pointer items-center justify-between gap-4">
-						<h3 class="!text-lg"><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
-						<span class="btn-primary !p-2"><iconify-icon icon="ph:caret-down"></iconify-icon></span>
-					</div>
-					<div class="accordion-slide"><div class="pt-4 leading-relaxed"><?php echo wp_kses_post( $item['content'] ?? '' ); ?></div></div>
+		<?php
+		// 2-col layout wraps each column in its own flex-col so borders/carets
+		// never bleed into the adjacent column (matches static location.php).
+		$two_col = ( '2' === $cols );
+		$groups  = array( $items );
+		if ( $two_col ) {
+			$groups = array( array(), array() );
+			foreach ( $items as $i => $item ) {
+				$groups[ $i % 2 ][] = $item;
+			}
+		}
+		?>
+		<div class="mx-auto mt-10 grid max-w-6xl grid-cols-1 items-start gap-x-10 md:mt-12 <?php echo esc_attr( $grid ); ?>" data-accordion-single>
+			<?php foreach ( $groups as $group ) : ?>
+				<div class="flex flex-col">
+					<?php foreach ( $group as $item ) : ?>
+						<div class="accordion-item mb-4 border-b border-gray-200 pb-4">
+							<div class="accordion-trigger flex cursor-pointer items-center justify-between gap-4">
+								<h3 class="!text-lg"><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
+								<span class="btn-primary !p-2"><iconify-icon icon="ph:caret-down"></iconify-icon></span>
+							</div>
+							<div class="accordion-slide"><div class="pt-4 leading-relaxed"><?php echo wp_kses_post( $item['content'] ?? '' ); ?></div></div>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			<?php endforeach; ?>
 		</div>
