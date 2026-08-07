@@ -32,7 +32,7 @@ $wrap      = $is_center ? 'max-w-4xl text-center' : 'max-w-4xl';
 							<h3><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
 							<span class="btn-primary !p-2"><iconify-icon icon="ph:caret-down"></iconify-icon></span>
 						</div>
-						<div class="accordion-slide"><div class="pt-4 leading-relaxed"><?php echo wp_kses_post( get_sub_field( 'content' ) ); ?></div></div>
+						<div class="accordion-slide"><div class="pt-6 leading-relaxed"><?php echo wp_kses_post( get_sub_field( 'content' ) ); ?></div></div>
 					</div>
 				<?php endwhile; ?>
 			</div>
