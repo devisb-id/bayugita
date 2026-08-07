@@ -23,5 +23,19 @@ $wrap      = $is_center ? 'max-w-4xl text-center' : 'max-w-4xl';
 				<div class="prose-basic mt-6 leading-relaxed"><?php echo wp_kses_post( $body ); ?></div>
 			<?php endif; ?>
 		</div>
+
+		<?php if ( have_rows( 'accordions' ) ) : ?>
+			<div class="mx-auto mt-16 max-w-4xl md:mt-20" data-accordion-single>
+				<?php while ( have_rows( 'accordions' ) ) : the_row(); ?>
+					<div class="accordion-item border-b border-gray-200 pb-4 [&:not(:first-child)]:mt-6">
+						<div class="accordion-trigger flex cursor-pointer items-center justify-between gap-4">
+							<h3><?php echo esc_html( get_sub_field( 'title' ) ); ?></h3>
+							<span class="btn-primary !p-2"><iconify-icon icon="ph:caret-down"></iconify-icon></span>
+						</div>
+						<div class="accordion-slide"><div class="pt-4 leading-relaxed"><?php echo wp_kses_post( get_sub_field( 'content' ) ); ?></div></div>
+					</div>
+				<?php endwhile; ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>

@@ -550,6 +550,45 @@
                                 "tabs": "all",
                                 "toolbar": "full",
                                 "media_upload": 1
+                            },
+                            {
+                                "key": "field_it_accordions",
+                                "label": "Accordions",
+                                "name": "accordions",
+                                "type": "repeater",
+                                "instructions": "Opsional. Ditampilkan sebagai accordion full-width tertutup di bawah body (mis. Villa Layout & Keyplan).",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "layout": "block",
+                                "button_label": "Add Accordion",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_it_acc_title",
+                                        "label": "Title",
+                                        "name": "title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": ""
+                                    },
+                                    {
+                                        "key": "field_it_acc_content",
+                                        "label": "Content",
+                                        "name": "content",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1
+                                    }
+                                ],
+                                "collapsed": ""
                             }
                         ],
                         "min": "",
@@ -2593,6 +2632,158 @@
                                             "class": "",
                                             "id": ""
                                         },
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1
+                                    }
+                                ],
+                                "collapsed": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_villa_bedrooms": {
+                        "key": "layout_villa_bedrooms",
+                        "name": "villa_bedrooms",
+                        "label": "Villa Bedrooms",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_vb_bg",
+                                "label": "Section Background",
+                                "name": "section_background",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "choices": {
+                                    "default": "Default (White/Transparent)",
+                                    "white": "White",
+                                    "cream": "Cream (brand-25)",
+                                    "brand": "Brand Light (brand-50)",
+                                    "gray": "Light Gray",
+                                    "dark": "Dark Theme"
+                                },
+                                "default_value": "default",
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 1,
+                                "ajax": 0,
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_vb_sid",
+                                "label": "Section ID (anchor)",
+                                "name": "section_id",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": ""
+                            },
+                            {
+                                "key": "field_vb_htext",
+                                "label": "Heading Text",
+                                "name": "heading_text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "The Bedrooms"
+                            },
+                            {
+                                "key": "field_vb_htag",
+                                "label": "Heading Tag",
+                                "name": "heading_tag",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "choices": { "h1": "H1", "h2": "H2", "h3": "H3", "h4": "H4", "h5": "H5", "h6": "H6" },
+                                "default_value": "h2",
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 1,
+                                "ajax": 0,
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_vb_images",
+                                "label": "Images (2 recommended)",
+                                "name": "images",
+                                "type": "repeater",
+                                "instructions": "Ditampilkan sebagai grid 2 kolom di atas intro.",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "layout": "table",
+                                "button_label": "Add Image",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_vb_image",
+                                        "label": "Image",
+                                        "name": "image",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "return_format": "array",
+                                        "preview_size": "medium",
+                                        "library": "all"
+                                    }
+                                ],
+                                "collapsed": ""
+                            },
+                            {
+                                "key": "field_vb_intro",
+                                "label": "Intro",
+                                "name": "intro",
+                                "type": "textarea",
+                                "instructions": "Paragraf tengah di bawah gambar.",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "rows": 3,
+                                "new_lines": "wpautop"
+                            },
+                            {
+                                "key": "field_vb_items",
+                                "label": "Bedroom Accordions",
+                                "name": "items",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "layout": "block",
+                                "button_label": "Add Bedroom",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_vb_title",
+                                        "label": "Title",
+                                        "name": "title",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": ""
+                                    },
+                                    {
+                                        "key": "field_vb_content",
+                                        "label": "Content",
+                                        "name": "content",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
                                         "tabs": "all",
                                         "toolbar": "full",
                                         "media_upload": 1
