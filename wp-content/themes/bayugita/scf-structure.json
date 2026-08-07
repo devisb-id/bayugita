@@ -1148,6 +1148,18 @@
                                 "return_format": "value"
                             },
                             {
+                                "key": "field_fc_intro",
+                                "label": "Intro",
+                                "name": "intro",
+                                "type": "textarea",
+                                "instructions": "Paragraf tengah di bawah heading (opsional).",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "rows": 3,
+                                "new_lines": "wpautop"
+                            },
+                            {
                                 "key": "field_fc_img",
                                 "label": "Wide Image",
                                 "name": "wide_image",
@@ -1235,6 +1247,115 @@
                                         "tabs": "all",
                                         "toolbar": "full",
                                         "media_upload": 1
+                                    }
+                                ],
+                                "collapsed": ""
+                            },
+                            {
+                                "key": "field_fc_btns",
+                                "label": "Buttons",
+                                "name": "buttons",
+                                "type": "repeater",
+                                "instructions": "Tombol tengah di bawah kolom (opsional).",
+                                "required": 0,
+                                "conditional_logic": false,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "layout": "block",
+                                "button_label": "Add Button",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_fc_btns_item",
+                                        "label": "Button",
+                                        "name": "button",
+                                        "type": "group",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": false,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "layout": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_fc_btns_item_label",
+                                                "label": "Button Label",
+                                                "name": "button_label",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_fc_btns_item_type",
+                                                "label": "Button Type",
+                                                "name": "button_type",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": false,
+                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "choices": {
+                                                    "internal": "Internal Link",
+                                                    "external": "External URL",
+                                                    "download": "Download File",
+                                                    "modal": "Open Enquiry Popup"
+                                                },
+                                                "default_value": "internal",
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 1,
+                                                "ajax": 0,
+                                                "return_format": "value"
+                                            },
+                                            {
+                                                "key": "field_fc_btns_item_internal",
+                                                "label": "Internal Link",
+                                                "name": "button_internal_link",
+                                                "type": "page_link",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        { "field": "field_fc_btns_item_type", "operator": "==", "value": "internal" }
+                                                    ]
+                                                ],
+                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "post_type": [],
+                                                "allow_null": 1,
+                                                "multiple": 0
+                                            },
+                                            {
+                                                "key": "field_fc_btns_item_external",
+                                                "label": "External URL",
+                                                "name": "button_external_url",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        { "field": "field_fc_btns_item_type", "operator": "==", "value": "external" }
+                                                    ]
+                                                ],
+                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "default_value": ""
+                                            },
+                                            {
+                                                "key": "field_fc_btns_item_download",
+                                                "label": "Download File",
+                                                "name": "button_download_file",
+                                                "type": "file",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        { "field": "field_fc_btns_item_type", "operator": "==", "value": "download" }
+                                                    ]
+                                                ],
+                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "return_format": "array",
+                                                "library": "all"
+                                            }
+                                        ]
                                     }
                                 ],
                                 "collapsed": ""
