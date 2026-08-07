@@ -30,7 +30,7 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 			</div>
 		<?php endif; ?>
 
-		<div class="mt-12 grid grid-cols-1 gap-8 <?php echo esc_attr( $grid_class ); ?> md:mt-16 xl:gap-10">
+		<div class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 <?php echo esc_attr( $grid_class ); ?> xl:mt-16 xl:gap-10">
 			<?php
 			foreach ( $cards as $card ) :
 				$href    = bayugita_button_url( $card['link'] ?? array() );
@@ -39,7 +39,7 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 				$is_icon = empty( $card['image'] ) && ! empty( $card['icon'] );
 				// Icon cards: single border around the whole card, left-aligned.
 				$card_class = $is_icon
-					? 'group flex h-full flex-col border border-gray-200 bg-white p-8 text-left xl:p-10'
+					? 'group flex h-full flex-col border border-gray-200 bg-white p-8 text-left transition-shadow hover:shadow-md xl:p-10'
 					: 'group flex h-full flex-col overflow-hidden text-center';
 				?>
 				<<?php echo $tag; // phpcs:ignore ?> class="<?php echo esc_attr( $card_class ); ?>"<?php echo $attrs; // phpcs:ignore ?>>
@@ -59,7 +59,13 @@ $grid_class = $grid[ $cols ] ?? 'md:grid-cols-3';
 							<div class="mt-3 max-w-md leading-relaxed<?php echo $is_icon ? '' : ' mx-auto'; ?>"><?php echo wp_kses_post( $card['text'] ); ?></div>
 						<?php endif; ?>
 						<?php if ( ! empty( $card['link_label'] ) ) : ?>
-							<span class="text-brand mt-4 inline-flex items-center gap-1<?php echo $is_icon ? '' : ' justify-center'; ?>"><?php echo esc_html( $card['link_label'] ); ?> <iconify-icon icon="ph:arrow-right"></iconify-icon></span>
+							<?php if ( $is_icon ) : ?>
+								<div class="mt-6 flex flex-1 items-end">
+									<span class="text-brand inline-flex items-center gap-1 text-sm font-medium"><?php echo esc_html( $card['link_label'] ); ?> <iconify-icon icon="ph:arrow-right" class="!text-brand transition-transform group-hover:translate-x-1"></iconify-icon></span>
+								</div>
+							<?php else : ?>
+								<span class="text-brand mt-4 inline-flex items-center justify-center gap-1"><?php echo esc_html( $card['link_label'] ); ?> <iconify-icon icon="ph:arrow-right"></iconify-icon></span>
+							<?php endif; ?>
 						<?php endif; ?>
 					</div>
 				</<?php echo $tag; // phpcs:ignore ?>>
